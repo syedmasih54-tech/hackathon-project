@@ -510,7 +510,7 @@ export default function LandingPage({
           <button
             type="button"
             onClick={onStartDemo}
-            className="px-3.5 sm:px-4 py-1.5 rounded-full bg-brandRed text-white text-xs sm:text-sm font-medium hover:bg-deepRed transition-all shadow-sm flex items-center gap-1.5 active:scale-95 cursor-pointer"
+            className="px-4 sm:px-5 py-2 rounded-full bg-brandRed text-white text-xs sm:text-sm font-black tracking-wide uppercase hover:bg-deepRed hover:scale-105 active:scale-95 transition-all shadow-md flex items-center gap-1.5 cursor-pointer ring-2 ring-brandRed/30"
             style={{ minHeight: '38px' }}
           >
             <span>{t.openPortal}</span>

@@ -160,6 +160,31 @@ export default function Section1Hero({ onIntroComplete, onStartDemo, lang = 'en'
               ))}
             </div>
           </div>
+
+          {/* CITIZEN PORTAL BUTTON DIRECTLY UNDER BENEFIT BRIDGE — BOLD & EASY TO SEE */}
+          <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3.5 z-20 pointer-events-auto">
+            <button
+              type="button"
+              onClick={onStartDemo}
+              className="px-8 sm:px-12 py-3.5 sm:py-4 rounded-full bg-brandRed text-white font-body font-black text-base sm:text-lg tracking-wider uppercase hover:bg-deepRed hover:scale-105 active:scale-95 transition-all shadow-xl shadow-brandRed/35 flex items-center gap-3 cursor-pointer ring-4 ring-brandRed/25"
+              style={{ minHeight: '54px' }}
+            >
+              <span>{lang === 'hi' ? 'नागरिक पोर्टल खोलें' : 'OPEN CITIZEN PORTAL'}</span>
+              <span className="text-xl">→</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                const el = document.getElementById('section2');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="px-6 py-3.5 rounded-full border-2 border-brandInk/25 text-brandInk font-bold text-sm hover:border-brandRed hover:text-brandRed hover:bg-brandRed/5 transition-all flex items-center gap-2 cursor-pointer bg-white/70 backdrop-blur-sm shadow-sm"
+              style={{ minHeight: '54px' }}
+            >
+              <span>{lang === 'hi' ? 'नीचे विवरण देखें' : 'Explore Platform'}</span>
+              <span>↓</span>
+            </button>
+          </div>
         </div>
 
         {/* Bottom bar on revealed white page */}
@@ -168,26 +193,18 @@ export default function Section1Hero({ onIntroComplete, onStartDemo, lang = 'en'
             {lang === 'hi' ? 'कल्याण, पहुँच के भीतर' : 'Welfare, made reachable'}
           </span>
 
-          {/* Smooth scroll down trigger */}
-          <button
-            type="button"
-            onClick={() => {
-              const el = document.getElementById('section2');
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-brandInk/15 text-brandInk/70 hover:text-brandRed hover:border-brandRed/40 transition-colors cursor-pointer group"
-          >
-            <span>{lang === 'hi' ? 'नीचे देखें' : 'Scroll to explore'}</span>
-            <span className="group-hover:translate-y-0.5 transition-transform">↓</span>
-          </button>
+          {/* 5 Dots with active dot larger */}
+          <div className="flex items-center gap-2" aria-label="Step indicator">
+            <span className="w-2.5 h-2.5 rounded-full bg-brandRed shadow-sm"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+          </div>
 
-          <button
-            type="button"
-            onClick={onStartDemo}
-            className="px-3.5 py-1.5 rounded-full bg-brandRed text-white font-medium hover:bg-deepRed transition-colors micro-text cursor-pointer shadow-sm"
-          >
-            {lang === 'hi' ? 'नागरिक पोर्टल →' : 'Citizen Portal →'}
-          </button>
+          <span className="micro-text text-brandInk/50 font-medium">
+            {lang === 'hi' ? 'आवाज़-सहायक केस प्लेटफ़ॉर्म' : 'Voice-assisted case platform'}
+          </span>
         </div>
       </div>
 
