@@ -128,5 +128,30 @@ describe('Deterministic Rules Engine - Multi-Scheme Support', () => {
       expect(incomeCheck.satisfied).toBe(false);
       expect(incomeCheck.next_step_en).toContain('₹2.50 Lakh');
     });
+
+    it('provides matchedConditions and missingConditions aliases for backward compatibility', () => {
+      const studentUser = {
+        age: 20,
+        is_enrolled_student: true,
+        family_income: 150000,
+        previous_marks_percentage: 72,
+        has_bank_account: true
+      };
+      const result = evaluateRules(scholarshipRules, studentUser);
+      expect(result.matchedConditions).toBeDefined();
+      expect(result.missingConditions).toBeDefined();
+      expect(result.matchedConditions.length).toBe(result.matchedRules.length);
+      expect(result.missingConditions.length).toBe(result.missingRules.length);
+    });
+
+    it('safely handles null rulesConfig without throwing', () => {
+      const result = evaluateRules(null, {});
+      expect(result).toBeDefined();
+      expect(result.matchedRules).toEqual([]);
+      expect(result.missingRules).toEqual([]);
+      expect(result.matchedConditions).toEqual([]);
+      expect(result.missingConditions).toEqual([]);
+      expect(result.isPotentiallyEligible).toBe(false);
+    });
   });
 });

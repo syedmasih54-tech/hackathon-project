@@ -252,6 +252,8 @@ export function evaluateRules(rulesConfig, userData = {}, nameMatchResult = null
 
     matchedRules,
     missingRules,
+    matchedConditions: matchedRules,
+    missingConditions: missingRules,
     checklist,
     readinessPercentage
   };

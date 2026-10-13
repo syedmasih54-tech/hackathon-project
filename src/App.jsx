@@ -7,6 +7,7 @@ import SampleProfileModal from './components/SampleProfileModal.jsx';
 import SchemeCalculatorModal from './components/SchemeCalculatorModal.jsx';
 import MitraAssistantDrawer from './components/MitraAssistantDrawer.jsx';
 import Toast from './components/Toast.jsx';
+import ErrorBoundary from './components/common/ErrorBoundary.jsx';
 
 import Screen1Consent from './components/screens/Screen1Consent.jsx';
 import Screen2Intake from './components/screens/Screen2Intake.jsx';
@@ -186,97 +187,99 @@ export default function App() {
               </div>
             )}
 
-            {/* Screen 1: CONSENT */}
-            {currentScreen === 'consent' && (
-              <Screen1Consent
-                consentData={consentData}
-                onSaveConsent={handleSaveConsent}
-                onNext={() => setCurrentScreen('intake')}
-                onOpenSampleProfiles={() => setIsSampleModalOpen(true)}
-                onOpenCalculator={() => setIsCalculatorModalOpen(true)}
-                lang={lang}
-              />
-            )}
+            <ErrorBoundary lang={lang} onGoHome={() => setCurrentScreen('landing')}>
+              {/* Screen 1: CONSENT */}
+              {currentScreen === 'consent' && (
+                <Screen1Consent
+                  consentData={consentData}
+                  onSaveConsent={handleSaveConsent}
+                  onNext={() => setCurrentScreen('intake')}
+                  onOpenSampleProfiles={() => setIsSampleModalOpen(true)}
+                  onOpenCalculator={() => setIsCalculatorModalOpen(true)}
+                  lang={lang}
+                />
+              )}
 
-            {/* Screen 2: INTAKE FORM */}
-            {currentScreen === 'intake' && (
-              <Screen2Intake
-                initialData={caseData}
-                onSaveIntake={handleSaveIntake}
-                onNext={() => setCurrentScreen('eligibility')}
-                onBack={() => setCurrentScreen('consent')}
-                onOpenSampleProfiles={() => setIsSampleModalOpen(true)}
-                lang={lang}
-                allowVoice={consentData?.allowVoice ?? true}
-              />
-            )}
+              {/* Screen 2: INTAKE FORM */}
+              {currentScreen === 'intake' && (
+                <Screen2Intake
+                  initialData={caseData}
+                  onSaveIntake={handleSaveIntake}
+                  onNext={() => setCurrentScreen('eligibility')}
+                  onBack={() => setCurrentScreen('consent')}
+                  onOpenSampleProfiles={() => setIsSampleModalOpen(true)}
+                  lang={lang}
+                  allowVoice={consentData?.allowVoice ?? true}
+                />
+              )}
 
-            {/* Screen 3: ELIGIBILITY RESULT */}
-            {currentScreen === 'eligibility' && (
-              <Screen3Eligibility
-                userData={caseData}
-                onNext={() => setCurrentScreen('documents')}
-                onBack={() => setCurrentScreen('intake')}
-                lang={lang}
-              />
-            )}
+              {/* Screen 3: ELIGIBILITY RESULT */}
+              {currentScreen === 'eligibility' && (
+                <Screen3Eligibility
+                  userData={caseData}
+                  onNext={() => setCurrentScreen('documents')}
+                  onBack={() => setCurrentScreen('intake')}
+                  lang={lang}
+                />
+              )}
 
-            {/* Screen 4: DOCUMENT DOCTOR */}
-            {currentScreen === 'documents' && (
-              <Screen4DocumentDoctor
-                caseData={caseData}
-                onSaveDocuments={handleSaveDocuments}
-                onNext={() => setCurrentScreen('readiness')}
-                onBack={() => setCurrentScreen('eligibility')}
-                lang={lang}
-                allowAiDocs={consentData?.allowAiDocs ?? true}
-              />
-            )}
+              {/* Screen 4: DOCUMENT DOCTOR */}
+              {currentScreen === 'documents' && (
+                <Screen4DocumentDoctor
+                  caseData={caseData}
+                  onSaveDocuments={handleSaveDocuments}
+                  onNext={() => setCurrentScreen('readiness')}
+                  onBack={() => setCurrentScreen('eligibility')}
+                  lang={lang}
+                  allowAiDocs={consentData?.allowAiDocs ?? true}
+                />
+              )}
 
-            {/* Screen 5: READINESS CARD */}
-            {currentScreen === 'readiness' && (
-              <Screen5Readiness
-                caseData={caseData}
-                onNext={() => setCurrentScreen('status')}
-                onBack={() => setCurrentScreen('documents')}
-                lang={lang}
-              />
-            )}
+              {/* Screen 5: READINESS CARD */}
+              {currentScreen === 'readiness' && (
+                <Screen5Readiness
+                  caseData={caseData}
+                  onNext={() => setCurrentScreen('status')}
+                  onBack={() => setCurrentScreen('documents')}
+                  lang={lang}
+                />
+              )}
 
-            {/* Dedicated Section: APPLICATION STATUS TRACKER */}
-            {currentScreen === 'status' && (
-              <ScreenStatus
-                caseData={caseData}
-                onNavigate={setCurrentScreen}
-                lang={lang}
-              />
-            )}
+              {/* Dedicated Section: APPLICATION STATUS TRACKER */}
+              {currentScreen === 'status' && (
+                <ScreenStatus
+                  caseData={caseData}
+                  onNavigate={setCurrentScreen}
+                  lang={lang}
+                />
+              )}
 
-            {/* Dedicated Section: EVIDENCE TIMELINE */}
-            {currentScreen === 'timeline' && (
-              <Screen6Timeline
-                onNext={() => setCurrentScreen('complaint')}
-                onBack={() => setCurrentScreen('status')}
-                lang={lang}
-              />
-            )}
+              {/* Dedicated Section: EVIDENCE TIMELINE */}
+              {currentScreen === 'timeline' && (
+                <Screen6Timeline
+                  onNext={() => setCurrentScreen('complaint')}
+                  onBack={() => setCurrentScreen('status')}
+                  lang={lang}
+                />
+              )}
 
-            {/* Dedicated Section: COMPLAINT DRAFT */}
-            {currentScreen === 'complaint' && (
-              <Screen7Complaint
-                caseData={caseData}
-                onBack={() => setCurrentScreen('timeline')}
-                lang={lang}
-              />
-            )}
+              {/* Dedicated Section: COMPLAINT DRAFT */}
+              {currentScreen === 'complaint' && (
+                <Screen7Complaint
+                  caseData={caseData}
+                  onBack={() => setCurrentScreen('timeline')}
+                  lang={lang}
+                />
+              )}
 
-            {/* Screen 9: SAMPLE DASHBOARD */}
-            {currentScreen === 'dashboard' && (
-              <Screen9Dashboard
-                onBack={() => setCurrentScreen('consent')}
-                lang={lang}
-              />
-            )}
+              {/* Screen 9: SAMPLE DASHBOARD */}
+              {currentScreen === 'dashboard' && (
+                <Screen9Dashboard
+                  onBack={() => setCurrentScreen('consent')}
+                  lang={lang}
+                />
+              )}
+            </ErrorBoundary>
           </main>
         </>
       )}
