@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --red: #C41528;
+  --deep-red: #8E1B2B;
+  --white: #FFFFFF;
+  --ink: #1A0F12;
+  --sky-top: #FFFFFF;
+  --sky-mid: #8FC3F7;
+  --sky-bot: #5FA3E8;
+  --cyan-glow: #A9E4FF;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-slate-900 antialiased min-h-screen selection:bg-red-100 selection:text-red-900;
+    font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+  }
+}
+
+.font-wordmark {
+  font-family: 'Saira Stencil One', 'Unbounded', sans-serif;
+}
+
+.font-body {
+  font-family: 'Inter Tight', sans-serif;
+}
+
+.font-serif-italic {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Micro text formatting: 11-12px, sentence case */
+.micro-text {
+  font-size: 11.5px;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+/* Ensure accessible focus outlines */
+*:focus-visible {
+  outline: none;
+  ring: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+/* Lenis smooth scrolling rules */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Smooth transition for theme and interactions */
+button, input, select, textarea {
+  transition-property: color, background-color, border-color, transform, opacity;
+  transition-duration: 150ms;
+}
+

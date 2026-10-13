@@ -1,0 +1,73 @@
+{
+  "scheme_id": "POST-MATRIC-SCHOLARSHIP",
+  "scheme_name_hi": "पोस्ट-मैट्रिक छात्रवृत्ति योजना (NSP)",
+  "scheme_name_en": "Post-Matric Scholarship Scheme (NSP)",
+  "verified": false,
+  "verification_warning_hi": "चेतावनी: ये नियम अभी तक आधिकारिक राष्ट्रीय छात्रवृत्ति पोर्टल (NSP) से सत्यापित नहीं हैं। यह एक प्रारंभिक प्रारूप है जिसमें मान प्लेसहोल्डर के रूप में हैं।",
+  "verification_warning_en": "Warning: These rules are not yet verified against the official National Scholarship Portal (NSP). Values are marked placeholders pending official verification.",
+  "source_url": "https://scholarships.gov.in",
+  "version": "1.0.0-draft-unverified",
+  "last_verified": "2026-10-01",
+  "rules": [
+    {
+      "id": "rule_student_enrollment",
+      "field": "is_enrolled_student",
+      "operator": "eq",
+      "condition": "is_enrolled_student == [PLACEHOLDER_BOOLEAN: true]",
+      "placeholder_value": true,
+      "placeholder_note": "[PLACEHOLDER - Official NSP verification pending]",
+      "source_url": "https://scholarships.gov.in/public/faq",
+      "version": "1.0-draft",
+      "last_verified": "2026-10-01",
+      "title_hi": "मान्यता प्राप्त संस्थान में नियमित नामांकन",
+      "title_en": "Regular Enrollment in Recognized Institution",
+      "description_hi": "छात्र/छात्रा का कक्षा 11, 12, आईटीआई, डिप्लोमा या स्नातक/परास्नातक में नियमित अध्ययनरत होना अनिवार्य है [सत्यापन लंबित]",
+      "description_en": "Applicant must be a regularly enrolled student in class 11, 12, ITI, diploma, or degree course [placeholder pending verification]"
+    },
+    {
+      "id": "rule_student_income",
+      "field": "family_income",
+      "operator": "lte",
+      "condition": "family_income <= [PLACEHOLDER_MAX_INCOME: 250000]",
+      "placeholder_value": 250000,
+      "placeholder_note": "[PLACEHOLDER - Official NSP verification pending]",
+      "source_url": "https://scholarships.gov.in/public/faq",
+      "version": "1.0-draft",
+      "last_verified": "2026-10-01",
+      "title_hi": "पारिवारिक वार्षिक आय सीमा (₹2.50 लाख तक)",
+      "title_en": "Family Annual Income Limit (Up to ₹2.50 Lakh)",
+      "description_hi": "परिवार की सभी स्रोतों से कुल वार्षिक आय ₹2,50,000 या उससे कम होनी चाहिए [सत्यापन लंबित]",
+      "description_en": "Total family annual income from all sources must not exceed ₹2,50,000 [placeholder pending verification]"
+    },
+    {
+      "id": "rule_student_marks",
+      "field": "previous_marks_percentage",
+      "operator": "gte",
+      "condition": "previous_marks_percentage >= [PLACEHOLDER_MIN_MARKS: 50]",
+      "placeholder_value": 50,
+      "placeholder_note": "[PLACEHOLDER - Official NSP verification pending]",
+      "source_url": "https://scholarships.gov.in/public/faq",
+      "version": "1.0-draft",
+      "last_verified": "2026-10-01",
+      "title_hi": "पिछली परीक्षा में न्यूनतम 50% प्राप्तांक",
+      "title_en": "Minimum 50% Marks in Qualifying Exam",
+      "description_hi": "पिछली अंतिम कक्षा या बोर्ड परीक्षा में न्यूनतम 50% अंक प्राप्त होना आवश्यक है [सत्यापन लंबित]",
+      "description_en": "Must have secured minimum 50% marks in previous qualifying examination [placeholder pending verification]"
+    },
+    {
+      "id": "rule_student_bank",
+      "field": "has_bank_account",
+      "operator": "eq",
+      "condition": "has_bank_account == [PLACEHOLDER_BOOLEAN: true]",
+      "placeholder_value": true,
+      "placeholder_note": "[PLACEHOLDER - Official NSP verification pending]",
+      "source_url": "https://scholarships.gov.in/public/faq",
+      "version": "1.0-draft",
+      "last_verified": "2026-10-01",
+      "title_hi": "छात्र के स्वयं के नाम से बैंक खाता",
+      "title_en": "Active Bank Account in Student's Name",
+      "description_hi": "छात्रवृत्ति राशि के सीधे अंतरण (DBT) के लिए छात्र के अपने नाम से आधार-लिंक्ड बैंक खाता होना अनिवार्य है",
+      "description_en": "Student must possess an active, Aadhaar-linked savings bank account in their own name"
+    }
+  ]
+}

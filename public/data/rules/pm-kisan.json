@@ -1,0 +1,73 @@
+{
+  "scheme_id": "PM-KISAN-FARMER",
+  "scheme_name_hi": "प्रधानमंत्री किसान सम्मान निधि (PM-KISAN)",
+  "scheme_name_en": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
+  "verified": false,
+  "verification_warning_hi": "चेतावनी: ये नियम अभी तक आधिकारिक PM-KISAN पोर्टल से सत्यापित नहीं हैं। यह एक प्रारंभिक प्रारूप है जिसमें मान प्लेसहोल्डर के रूप में हैं।",
+  "verification_warning_en": "Warning: These rules are not yet verified against the official PM-KISAN portal. Values are marked placeholders pending official verification.",
+  "source_url": "https://pmkisan.gov.in",
+  "version": "1.0.0-draft-unverified",
+  "last_verified": "2026-10-01",
+  "rules": [
+    {
+      "id": "rule_farmer_land",
+      "field": "owns_cultivable_land",
+      "operator": "eq",
+      "condition": "owns_cultivable_land == [PLACEHOLDER_BOOLEAN: true]",
+      "placeholder_value": true,
+      "placeholder_note": "[PLACEHOLDER - Official PM-KISAN verification pending]",
+      "source_url": "https://pmkisan.gov.in/Documents.aspx",
+      "version": "1.0-draft",
+      "last_verified": "2026-10-01",
+      "title_hi": "कृषि योग्य भूमि का स्वामित्व",
+      "title_en": "Cultivable Landholding Ownership",
+      "description_hi": "किसान परिवार के नाम पर राजस्व रिकॉर्ड में कृषि योग्य भूमि दर्ज होनी चाहिए [सत्यापन लंबित]",
+      "description_en": "Farmer family must hold cultivable agricultural land in revenue records [placeholder pending verification]"
+    },
+    {
+      "id": "rule_farmer_age",
+      "field": "age",
+      "operator": "gte",
+      "condition": "age >= [PLACEHOLDER_MIN_AGE: 18]",
+      "placeholder_value": 18,
+      "placeholder_note": "[PLACEHOLDER - Official PM-KISAN verification pending]",
+      "source_url": "https://pmkisan.gov.in/Documents.aspx",
+      "version": "1.0-draft",
+      "last_verified": "2026-10-01",
+      "title_hi": "न्यूनतम आयु 18 वर्ष",
+      "title_en": "Minimum Age 18 Years",
+      "description_hi": "भूमिधारक किसान की आयु 18 वर्ष या उससे अधिक होनी चाहिए [सत्यापन लंबित]",
+      "description_en": "Farmer landholder must be 18 years or older [placeholder pending verification]"
+    },
+    {
+      "id": "rule_farmer_exclusion",
+      "field": "is_taxpayer_excluded",
+      "operator": "eq",
+      "condition": "is_taxpayer_excluded == [PLACEHOLDER_BOOLEAN: false]",
+      "placeholder_value": false,
+      "placeholder_note": "[PLACEHOLDER - Official PM-KISAN verification pending]",
+      "source_url": "https://pmkisan.gov.in/Documents.aspx",
+      "version": "1.0-draft",
+      "last_verified": "2026-10-01",
+      "title_hi": "बहिष्करण श्रेणी में नहीं (गैर-आयकर दाता)",
+      "title_en": "Exclusion Criteria (Non-Taxpayer)",
+      "description_hi": "किसान या परिवार का कोई सदस्य आयकर दाता अथवा संवैधानिक/सरकारी पद पर नहीं होना चाहिए [सत्यापन लंबित]",
+      "description_en": "Must not fall under exclusion criteria (e.g. income tax payer, constitutional post) [placeholder pending verification]"
+    },
+    {
+      "id": "rule_farmer_bank",
+      "field": "has_bank_account",
+      "operator": "eq",
+      "condition": "has_bank_account == [PLACEHOLDER_BOOLEAN: true]",
+      "placeholder_value": true,
+      "placeholder_note": "[PLACEHOLDER - Official PM-KISAN verification pending]",
+      "source_url": "https://pmkisan.gov.in/Documents.aspx",
+      "version": "1.0-draft",
+      "last_verified": "2026-10-01",
+      "title_hi": "सक्रिय बैंक खाता एवं DBT मैपिंग",
+      "title_en": "Active Bank Account & DBT Mapping",
+      "description_hi": "₹2000 की त्रैमासिक किस्तें प्राप्त करने के लिए आधार-सीडेड बैंक खाता अनिवार्य है [सत्यापन लंबित]",
+      "description_en": "Aadhaar-seeded active bank account is mandatory for receiving quarterly DBT installments [placeholder pending verification]"
+    }
+  ]
+}

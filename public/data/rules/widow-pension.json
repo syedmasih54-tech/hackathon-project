@@ -1,0 +1,73 @@
+{
+  "scheme_id": "IGNWPS-WIDOW-PENSION",
+  "scheme_name_hi": "इंदिरा गांधी राष्ट्रीय विधवा पेंशन योजना (IGNWPS)",
+  "scheme_name_en": "Indira Gandhi National Widow Pension Scheme (IGNWPS)",
+  "verified": false,
+  "verification_warning_hi": "चेतावनी: ये नियम अभी तक आधिकारिक NSAP साइट से सत्यापित नहीं हैं। यह केवल प्रारंभिक मसौदा है जिसे आधिकारिक साइट से अद्यतन किया जाना है।",
+  "verification_warning_en": "Warning: These rules are not yet verified against the official NSAP portal. Values are marked placeholders pending official verification.",
+  "source_url": "https://nsap.nic.in",
+  "version": "1.0.0-draft-unverified",
+  "last_verified": "2026-10-01",
+  "rules": [
+    {
+      "id": "rule_age",
+      "field": "age",
+      "operator": "gte",
+      "condition": "age >= [PLACEHOLDER_MIN_AGE: 40]",
+      "placeholder_value": 40,
+      "placeholder_note": "[PLACEHOLDER - Official NSAP verification pending]",
+      "source_url": "https://nsap.nic.in/guidelines.do",
+      "version": "1.0-draft",
+      "last_verified": "2026-10-01",
+      "title_hi": "न्यूनतम आयु 40 वर्ष",
+      "title_en": "Minimum Age 40 Years",
+      "description_hi": "आवेदक की आयु 40 वर्ष या उससे अधिक होनी चाहिए [सत्यापन लंबित]",
+      "description_en": "Applicant must be 40 years or older [placeholder pending verification]"
+    },
+    {
+      "id": "rule_marital_status",
+      "field": "marital_status",
+      "operator": "eq",
+      "condition": "marital_status == [PLACEHOLDER_STATUS: 'widowed']",
+      "placeholder_value": "widowed",
+      "placeholder_note": "[PLACEHOLDER - Official NSAP verification pending]",
+      "source_url": "https://nsap.nic.in/guidelines.do",
+      "version": "1.0-draft",
+      "last_verified": "2026-10-01",
+      "title_hi": "वैवाहिक स्थिति: विधवा",
+      "title_en": "Marital Status: Widowed",
+      "description_hi": "योजना के अंतर्गत पात्र होने के लिए आवेदक का विधवा होना आवश्यक है [सत्यापन लंबित]",
+      "description_en": "Applicant must be a widow to qualify under this scheme [placeholder pending verification]"
+    },
+    {
+      "id": "rule_bpl",
+      "field": "ration_card_type",
+      "operator": "in",
+      "condition": "ration_card_type in [[PLACEHOLDER_BPL], [PLACEHOLDER_AAY]]",
+      "placeholder_value": ["BPL", "AAY"],
+      "placeholder_note": "[PLACEHOLDER - Official NSAP verification pending]",
+      "source_url": "https://nsap.nic.in/guidelines.do",
+      "version": "1.0-draft",
+      "last_verified": "2026-10-01",
+      "title_hi": "बीपीएल / अंत्योदय राशन कार्ड",
+      "title_en": "BPL / Antyodaya Ration Card",
+      "description_hi": "आवेदक का परिवार बीपीएल (गरीबी रेखा से नीचे) या अंत्योदय सूची में होना चाहिए [सत्यापन लंबित]",
+      "description_en": "Applicant family must be in BPL or Antyodaya category [placeholder pending verification]"
+    },
+    {
+      "id": "rule_bank_account",
+      "field": "has_bank_account",
+      "operator": "eq",
+      "condition": "has_bank_account == [PLACEHOLDER_BOOLEAN: true]",
+      "placeholder_value": true,
+      "placeholder_note": "[PLACEHOLDER - Official NSAP verification pending]",
+      "source_url": "https://nsap.nic.in/guidelines.do",
+      "version": "1.0-draft",
+      "last_verified": "2026-10-01",
+      "title_hi": "सक्रिय बैंक खाता",
+      "title_en": "Active Bank Account",
+      "description_hi": "प्रत्यक्ष लाभ अंतरण (DBT) द्वारा पेंशन प्राप्त करने के लिए बैंक खाता अनिवार्य है",
+      "description_en": "An active bank account is mandatory for receiving Direct Benefit Transfer (DBT)"
+    }
+  ]
+}
