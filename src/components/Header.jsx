@@ -27,6 +27,14 @@ export default function Header({
 
   const sections = [
     {
+      id: 'landing',
+      activeScreens: ['landing'],
+      targetScreen: 'landing',
+      icon: Globe,
+      label_hi: 'वेबसाइट परिचय',
+      label_en: 'Site Tour'
+    },
+    {
       id: 'eligibility_group',
       activeScreens: ['consent', 'intake', 'eligibility', 'documents', 'readiness'],
       targetScreen: 'consent',

@@ -152,6 +152,7 @@ export default function App() {
           onStartDemo={() => setCurrentScreen('consent')}
           onNavigate={setCurrentScreen}
           lang={lang}
+          onToggleLang={handleToggleLang}
         />
       ) : (
         <>

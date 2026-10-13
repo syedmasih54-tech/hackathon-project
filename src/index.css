@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Inter+Tight:wght@300;400;500;600;700&family=Instrument+Serif:ital@1&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -73,3 +75,23 @@ button, input, select, textarea {
   transition-duration: 150ms;
 }
 
+/* Landing page — ticket card 3D perspective */
+.ticket-card {
+  will-change: transform;
+  transition: box-shadow 0.3s ease;
+}
+.ticket-card:hover {
+  box-shadow: 0 28px 60px rgba(0,0,0,.16) !important;
+}
+
+/* S3 word animation initial state */
+.s3-word {
+  display: inline-block;
+  will-change: opacity, filter;
+}
+
+/* Accessible focus ring override */
+*:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 3px;
+}

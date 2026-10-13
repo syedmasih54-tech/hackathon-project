@@ -9,7 +9,6 @@ export default function Section1Hero({ onIntroComplete, onStartDemo, lang = 'en'
   const charsWhiteRef = useRef([]);
   const [isCompleted, setIsCompleted] = useState(() => {
     return typeof window !== 'undefined' && (
-      sessionStorage.getItem('benefit_bridge_intro_seen') === 'true' ||
       window.matchMedia('(prefers-reduced-motion: reduce)').matches
     );
   });
@@ -18,7 +17,6 @@ export default function Section1Hero({ onIntroComplete, onStartDemo, lang = 'en'
   const word2 = 'BRIDGE';
 
   const handleSkip = () => {
-    sessionStorage.setItem('benefit_bridge_intro_seen', 'true');
     setIsCompleted(true);
     document.body.style.overflow = '';
     if (redLayerRef.current) {
@@ -38,6 +36,7 @@ export default function Section1Hero({ onIntroComplete, onStartDemo, lang = 'en'
       if (redLayerRef.current) {
         redLayerRef.current.style.display = 'none';
       }
+      if (onIntroComplete) onIntroComplete();
       return;
     }
 
@@ -57,7 +56,6 @@ export default function Section1Hero({ onIntroComplete, onStartDemo, lang = 'en'
     const tl = gsap.timeline({
       defaults: { ease: 'expo.out' },
       onComplete: () => {
-        sessionStorage.setItem('benefit_bridge_intro_seen', 'true');
         setIsCompleted(true);
         document.body.style.overflow = '';
         if (redLayerRef.current) {
@@ -166,21 +164,29 @@ export default function Section1Hero({ onIntroComplete, onStartDemo, lang = 'en'
 
         {/* Bottom bar on revealed white page */}
         <div className="w-full flex items-center justify-between micro-text text-brandInk/70">
-          <span className="font-serif-italic text-sm text-brandInk">Welfare, made reachable</span>
-          {/* 5 Dots with active dot larger */}
-          <div className="flex items-center gap-2" aria-label="Step indicator">
-            <span className="w-2 h-2 rounded-full bg-brandRed"></span>
-            <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
-            <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
-            <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
-            <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
-          </div>
+          <span className="font-serif-italic text-sm text-brandInk">
+            {lang === 'hi' ? 'कल्याण, पहुँच के भीतर' : 'Welfare, made reachable'}
+          </span>
+
+          {/* Smooth scroll down trigger */}
+          <button
+            type="button"
+            onClick={() => {
+              const el = document.getElementById('section2');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-brandInk/15 text-brandInk/70 hover:text-brandRed hover:border-brandRed/40 transition-colors cursor-pointer group"
+          >
+            <span>{lang === 'hi' ? 'नीचे देखें' : 'Scroll to explore'}</span>
+            <span className="group-hover:translate-y-0.5 transition-transform">↓</span>
+          </button>
+
           <button
             type="button"
             onClick={onStartDemo}
-            className="px-3 py-1.5 rounded-full bg-brandRed text-white font-medium hover:bg-deepRed transition-colors micro-text cursor-pointer"
+            className="px-3.5 py-1.5 rounded-full bg-brandRed text-white font-medium hover:bg-deepRed transition-colors micro-text cursor-pointer shadow-sm"
           >
-            Try the demo →
+            {lang === 'hi' ? 'नागरिक पोर्टल →' : 'Citizen Portal →'}
           </button>
         </div>
       </div>
