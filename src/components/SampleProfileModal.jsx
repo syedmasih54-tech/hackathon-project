@@ -39,7 +39,7 @@ export const SAMPLE_PROFILES = [
     roleHi: 'किसान सम्मान निधि लाभार्थी (48 वर्ष, गोरखपुर)',
     roleEn: 'PM-KISAN Farmer Beneficiary (48 yrs, Gorakhpur)',
     icon: Tractor,
-    color: 'from-emerald-500 to-teal-600',
+    color: 'from-brandRed to-deepRed',
     data: {
       selectedScheme: 'pm-kisan',
       state: 'UP',
@@ -173,14 +173,14 @@ export default function SampleProfileModal({
                 key={prof.id}
                 type="button"
                 onClick={() => handleApplyProfile(prof)}
-                className="w-full p-4 rounded-2xl border border-slate-200 hover:border-emerald-500 hover:bg-emerald-50/50 text-left transition-all flex items-center justify-between gap-4 group"
+                className="w-full p-4 rounded-2xl border border-slate-200 hover:border-brandRed hover:bg-red-50/30 text-left transition-all flex items-center justify-between gap-4 group"
               >
                 <div className="flex items-center gap-3.5">
                   <div className={`w-11 h-11 rounded-2xl bg-gradient-to-tr ${prof.color} text-white flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-105 transition-transform`}>
                     <Icon className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-extrabold text-slate-900 text-sm group-hover:text-emerald-950">
+                    <h3 className="font-extrabold text-slate-900 text-sm group-hover:text-brandRed">
                       {isHi ? prof.nameHi : prof.name}
                     </h3>
                     <p className="text-xs text-slate-500 mt-0.5 leading-snug">
@@ -189,7 +189,7 @@ export default function SampleProfileModal({
                   </div>
                 </div>
 
-                <div className="p-2 rounded-xl bg-slate-100 group-hover:bg-emerald-600 text-slate-600 group-hover:text-white transition-colors flex-shrink-0">
+                <div className="p-2 rounded-xl bg-slate-100 group-hover:bg-brandRed text-slate-600 group-hover:text-white transition-colors flex-shrink-0">
                   <ArrowRight className="w-4 h-4" />
                 </div>
               </button>
@@ -208,4 +208,7 @@ export default function SampleProfileModal({
     </div>
   );
 }
+
+
+
 

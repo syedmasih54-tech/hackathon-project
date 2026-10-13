@@ -115,11 +115,11 @@ export default function Screen7Complaint({
   const wordCount = draft.trim() ? draft.trim().split(/\s+/).length : 0;
 
   return (
-    <div className="max-w-2xl mx-auto py-6 px-4">
+    <div className="max-w-5xl mx-auto py-6 px-4">
       <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/90 space-y-6">
         {/* Step Indicator */}
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 text-brandRed font-bold text-xs font-bold uppercase tracking-wider mb-2">
             <FileText className="w-3.5 h-3.5" />
             {isHi ? 'चरण 7: शिकायत मसौदा' : 'Step 7: Complaint Draft'}
           </div>
@@ -241,7 +241,7 @@ export default function Screen7Complaint({
                     onClick={() => setTone('polite')}
                     className={`py-1.5 px-2 rounded-xl text-xs font-bold border transition-all ${
                       tone === 'polite'
-                        ? 'bg-emerald-100 border-emerald-400 text-emerald-950 shadow-2xs'
+                        ? 'bg-red-100 border-brandRed text-red-950 shadow-2xs'
                         : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
                     }`}
                   >
@@ -279,7 +279,7 @@ export default function Screen7Complaint({
                   type="button"
                   onClick={handleGenerateComplaint}
                   disabled={isGenerating}
-                  className="min-h-[44px] px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm"
+                  className="min-h-[44px] px-4 py-2 rounded-xl bg-brandRed hover:bg-deepRed text-white font-bold text-xs flex items-center gap-1.5 shadow-sm"
                 >
                   <Sparkles className="w-4 h-4" />
                   <span>{isGenerating ? (isHi ? 'मसौदा तैयार हो रहा है...' : 'Generating...') : (isHi ? 'नया मसौदा तैयार करें' : 'Generate Complaint Draft')}</span>
@@ -296,7 +296,7 @@ export default function Screen7Complaint({
                       {isHi ? 'शिकायत का संपादन योग्य मसौदा:' : 'Editable Complaint Draft:'}
                     </span>
                     <span className={`text-[11px] font-mono font-bold px-2 py-0.5 rounded-full ${
-                      wordCount <= 120 ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-800'
+                      wordCount <= 120 ? 'bg-red-100 text-brandRed font-bold' : 'bg-red-100 text-red-800'
                     }`}>
                       {wordCount} / 120 {isHi ? 'शब्द' : 'words'}
                     </span>
@@ -326,17 +326,17 @@ export default function Screen7Complaint({
                   rows="7"
                   value={draft}
                   onChange={(e) => setDraft(e.target.value)}
-                  className="w-full p-4 rounded-2xl border border-slate-300 bg-white text-sm text-slate-900 font-sans leading-relaxed focus:border-emerald-500 shadow-sm"
+                  className="w-full p-4 rounded-2xl border border-slate-300 bg-white text-sm text-slate-900 font-sans leading-relaxed focus:border-brandRed shadow-sm"
                 />
 
                 {/* Approval Checkbox (Mandatory before enabling portal link) */}
-                <div className="p-3.5 rounded-2xl bg-emerald-50/70 border border-emerald-300">
+                <div className="p-3.5 rounded-2xl bg-red-50/70 border border-red-300">
                   <label className="flex items-start gap-3 cursor-pointer">
                     <input
                       type="checkbox"
                       checked={isApproved}
                       onChange={(e) => setIsApproved(e.target.checked)}
-                      className="w-5 h-5 mt-0.5 text-emerald-600 rounded focus:ring-emerald-500 border-slate-300"
+                      className="w-5 h-5 mt-0.5 text-brandRed rounded focus:ring-brandRed border-slate-300"
                     />
                     <div className="text-xs sm:text-sm text-slate-900 font-bold">
                       {isHi
@@ -357,7 +357,7 @@ export default function Screen7Complaint({
                     }}
                     className={`min-h-[48px] w-full py-3.5 px-6 rounded-2xl font-bold text-sm sm:text-base flex items-center justify-center gap-2 shadow-md transition-all ${
                       isApproved
-                        ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-emerald-200 cursor-pointer'
+                        ? 'bg-brandRed hover:bg-deepRed text-white shadow-brandRed/25 cursor-pointer cursor-pointer'
                         : 'bg-slate-200 text-slate-400 cursor-not-allowed'
                     }`}
                   >
@@ -434,7 +434,7 @@ export default function Screen7Complaint({
                   </button>
 
                   {hasDownloadedCalendar && (
-                    <p className="text-xs text-emerald-700 font-semibold text-center">
+                    <p className="text-xs text-brandRed font-semibold text-center">
                       ✓ {isHi ? 'कैलेंडर फ़ाइल डाउनलोड हो गई है।' : 'Calendar event downloaded.'}
                     </p>
                   )}
@@ -459,3 +459,4 @@ export default function Screen7Complaint({
     </div>
   );
 }
+

@@ -98,16 +98,16 @@ export default function MitraAssistantDrawer({
     <div className="fixed inset-0 z-50 flex justify-end bg-slate-900/50 backdrop-blur-sm animate-in fade-in duration-200">
       <div className="bg-white max-w-md w-full h-full shadow-2xl flex flex-col border-l border-slate-200 animate-in slide-in-from-right duration-300">
         {/* Header */}
-        <div className="p-5 border-b border-slate-100 flex items-center justify-between bg-emerald-700 text-white">
+        <div className="p-5 border-b border-slate-100 flex items-center justify-between bg-brandRed text-white">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center">
-              <Sparkles className="w-4 h-4 text-emerald-200" />
+              <Sparkles className="w-4 h-4 text-red-200" />
             </div>
             <div>
               <h2 className="font-extrabold text-base">
                 {isHi ? 'बेनिफ़िट मित्र (नागरिक सहायता)' : 'Benefit Mitra (Citizen Helpdesk)'}
               </h2>
-              <p className="text-xs text-emerald-100">
+              <p className="text-xs text-red-100">
                 {isHi ? 'हेल्पलाइन नंबर और अक्सर पूछे जाने वाले सवाल' : 'Helplines & Official Solutions'}
               </p>
             </div>
@@ -132,7 +132,7 @@ export default function MitraAssistantDrawer({
               placeholder={isHi ? 'समस्या या सवाल खोजें (उदा. NPCI, खतौनी)...' : 'Search issues (e.g. NPCI, land record)...'}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 rounded-xl text-xs bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="w-full pl-9 pr-3 py-2 rounded-xl text-xs bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brandRed"
             />
           </div>
         </div>
@@ -142,7 +142,7 @@ export default function MitraAssistantDrawer({
           {/* Official Helplines */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2 flex items-center gap-1.5">
-              <PhoneCall className="w-3.5 h-3.5 text-emerald-600" />
+              <PhoneCall className="w-3.5 h-3.5 text-brandRed" />
               <span>{isHi ? 'आधिकारिक सरकारी टोल-फ्री हेल्पलाइन' : 'Official Government Helplines'}</span>
             </h3>
 
@@ -160,7 +160,7 @@ export default function MitraAssistantDrawer({
                   </div>
                   <a
                     href={`tel:${hl.number}`}
-                    className="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-mono font-bold text-xs flex items-center gap-1 shadow-sm"
+                    className="px-3 py-1.5 rounded-xl bg-brandRed hover:bg-deepRed text-white font-mono font-bold text-xs flex items-center gap-1 shadow-sm"
                   >
                     <PhoneCall className="w-3 h-3" />
                     <span>{hl.number}</span>
@@ -173,7 +173,7 @@ export default function MitraAssistantDrawer({
           {/* Solutions & FAQs */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2 flex items-center gap-1.5">
-              <BookOpen className="w-3.5 h-3.5 text-emerald-600" />
+              <BookOpen className="w-3.5 h-3.5 text-brandRed" />
               <span>{isHi ? 'समाधान एवं प्रक्रियाएं (FAQs)' : 'Guides & FAQs'}</span>
             </h3>
 
@@ -205,7 +205,7 @@ export default function MitraAssistantDrawer({
                       <div className="p-3.5 pt-0 border-t border-slate-100 bg-slate-50/60 text-xs text-slate-700 leading-relaxed">
                         <p>{answer}</p>
                         <div className="mt-3 flex items-center justify-between pt-2 border-t border-slate-200">
-                          <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">
+                          <span className="px-2 py-0.5 rounded-full bg-red-100 text-brandRed font-bold text-[10px] font-bold">
                             {faq.tag}
                           </span>
                           <SpeakButton
@@ -235,4 +235,7 @@ export default function MitraAssistantDrawer({
     </div>
   );
 }
+
+
+
 

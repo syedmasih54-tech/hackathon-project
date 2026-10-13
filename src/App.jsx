@@ -181,7 +181,7 @@ export default function App() {
           <main className="flex-1 pb-20 bg-slate-50">
             {/* Persistent Privacy Banner at top of each flow screen */}
             {currentScreen !== 'dashboard' && (
-              <div className="max-w-2xl mx-auto px-4 pt-4">
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-5">
                 <PrivacyBanner lang={lang} />
               </div>
             )}
@@ -286,10 +286,10 @@ export default function App() {
         <button
           type="button"
           onClick={() => setIsMitraDrawerOpen(true)}
-          className="px-4 py-3 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-700 text-white font-extrabold text-xs sm:text-sm flex items-center gap-2 shadow-xl hover:shadow-2xl hover:scale-105 transition-all ring-2 ring-white/50"
+          className="px-4 py-3 rounded-2xl bg-gradient-to-r from-brandRed to-deepRed text-white font-extrabold text-xs sm:text-sm flex items-center gap-2 shadow-xl hover:shadow-2xl hover:scale-105 transition-all ring-2 ring-brandRed/30 cursor-pointer"
           title={lang === 'hi' ? 'बेनिफ़िट मित्र सहायता' : 'Benefit Mitra Helpdesk'}
         >
-          <HelpCircle className="w-5 h-5 text-emerald-200" />
+          <HelpCircle className="w-5 h-5 text-red-100" />
           <span>{lang === 'hi' ? 'सहायता मित्र' : 'Mitra Help'}</span>
         </button>
       </div>

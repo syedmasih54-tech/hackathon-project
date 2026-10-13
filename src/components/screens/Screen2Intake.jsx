@@ -144,12 +144,12 @@ export default function Screen2Intake({
   };
 
   return (
-    <div className="max-w-2xl mx-auto py-6 px-4">
+    <div className="max-w-5xl mx-auto py-6 px-4">
       <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/90 space-y-6">
         {/* Step Indicator & Header Actions */}
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 text-brandRed font-bold text-xs font-bold uppercase tracking-wider mb-2">
               <User className="w-3.5 h-3.5" />
               {isHi ? 'चरण 2: योजना एवं आवेदक की जानकारी' : 'Step 2: Scheme & Intake Form'}
             </div>
@@ -197,12 +197,12 @@ export default function Screen2Intake({
               onClick={() => setFormData(prev => ({ ...prev, selectedScheme: 'widow-pension' }))}
               className={`min-h-[56px] p-3 rounded-2xl border text-left transition-all flex flex-col justify-between ${
                 formData.selectedScheme === 'widow-pension'
-                  ? 'bg-emerald-50 border-emerald-400 ring-2 ring-emerald-400 text-emerald-950 font-bold shadow-sm'
+                  ? 'bg-red-50 border-brandRed ring-2 ring-brandRed text-red-950 font-bold shadow-sm'
                   : 'bg-slate-50 border-slate-200 hover:bg-slate-100 text-slate-700'
               }`}
             >
               <div className="flex items-center gap-2 mb-1">
-                <Heart className={`w-4 h-4 ${formData.selectedScheme === 'widow-pension' ? 'text-emerald-700' : 'text-slate-500'}`} />
+                <Heart className={`w-4 h-4 ${formData.selectedScheme === 'widow-pension' ? 'text-brandRed' : 'text-slate-500'}`} />
                 <span className="text-xs font-bold uppercase tracking-wide">
                   {isHi ? 'विधवा पेंशन' : 'Widow Pension'}
                 </span>
@@ -218,12 +218,12 @@ export default function Screen2Intake({
               onClick={() => setFormData(prev => ({ ...prev, selectedScheme: 'pm-kisan' }))}
               className={`min-h-[56px] p-3 rounded-2xl border text-left transition-all flex flex-col justify-between ${
                 formData.selectedScheme === 'pm-kisan'
-                  ? 'bg-emerald-50 border-emerald-400 ring-2 ring-emerald-400 text-emerald-950 font-bold shadow-sm'
+                  ? 'bg-red-50 border-brandRed ring-2 ring-brandRed text-red-950 font-bold shadow-sm'
                   : 'bg-slate-50 border-slate-200 hover:bg-slate-100 text-slate-700'
               }`}
             >
               <div className="flex items-center gap-2 mb-1">
-                <Tractor className={`w-4 h-4 ${formData.selectedScheme === 'pm-kisan' ? 'text-emerald-700' : 'text-slate-500'}`} />
+                <Tractor className={`w-4 h-4 ${formData.selectedScheme === 'pm-kisan' ? 'text-brandRed' : 'text-slate-500'}`} />
                 <span className="text-xs font-bold uppercase tracking-wide">
                   {isHi ? 'किसान सम्मान' : 'PM-KISAN Farmers'}
                 </span>
@@ -239,12 +239,12 @@ export default function Screen2Intake({
               onClick={() => setFormData(prev => ({ ...prev, selectedScheme: 'post-matric-scholarship' }))}
               className={`min-h-[56px] p-3 rounded-2xl border text-left transition-all flex flex-col justify-between ${
                 formData.selectedScheme === 'post-matric-scholarship'
-                  ? 'bg-emerald-50 border-emerald-400 ring-2 ring-emerald-400 text-emerald-950 font-bold shadow-sm'
+                  ? 'bg-red-50 border-brandRed ring-2 ring-brandRed text-red-950 font-bold shadow-sm'
                   : 'bg-slate-50 border-slate-200 hover:bg-slate-100 text-slate-700'
               }`}
             >
               <div className="flex items-center gap-2 mb-1">
-                <GraduationCap className={`w-4 h-4 ${formData.selectedScheme === 'post-matric-scholarship' ? 'text-emerald-700' : 'text-slate-500'}`} />
+                <GraduationCap className={`w-4 h-4 ${formData.selectedScheme === 'post-matric-scholarship' ? 'text-brandRed' : 'text-slate-500'}`} />
                 <span className="text-xs font-bold uppercase tracking-wide">
                   {isHi ? 'छात्रवृत्ति' : 'Scholarship'}
                 </span>
@@ -288,7 +288,7 @@ export default function Screen2Intake({
               }}
               placeholder={isHi ? 'उदा. सुनीता देवी / राम प्रसाद / रोहित कुमार' : 'e.g. Sunita Devi'}
               className={`w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border text-sm text-slate-900 bg-white ${
-                errors.ration_name ? 'border-red-400 ring-2 ring-red-200' : 'border-slate-300 focus:border-emerald-500'
+                errors.ration_name ? 'border-red-400 ring-2 ring-red-200' : 'border-slate-300 focus:border-brandRed focus:ring-1 focus:ring-brandRed'
               }`}
             />
             {errors.ration_name && (
@@ -308,7 +308,7 @@ export default function Screen2Intake({
                 id="state_select"
                 value={formData.state}
                 onChange={handleStateChange}
-                className="w-full min-h-[44px] px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 font-medium focus:border-emerald-500"
+                className="w-full min-h-[44px] px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 font-medium focus:border-brandRed focus:ring-1 focus:ring-brandRed"
               >
                 {INDIAN_STATES_AND_DISTRICTS.map(st => (
                   <option key={st.state_id} value={st.state_id}>
@@ -326,7 +326,7 @@ export default function Screen2Intake({
                 id="district_select"
                 value={formData.district}
                 onChange={(e) => setFormData(prev => ({ ...prev, district: e.target.value }))}
-                className="w-full min-h-[44px] px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 font-medium focus:border-emerald-500"
+                className="w-full min-h-[44px] px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 font-medium focus:border-brandRed focus:ring-1 focus:ring-brandRed"
               >
                 {currentStateObj.districts.map(dist => (
                   <option key={dist.id} value={dist.id}>
@@ -364,7 +364,7 @@ export default function Screen2Intake({
                 }}
                 placeholder={formData.selectedScheme === 'post-matric-scholarship' ? 'उदा. 19' : 'उदा. 48'}
                 className={`w-full min-h-[44px] px-3.5 py-2.5 rounded-xl border text-sm text-slate-900 bg-white ${
-                  errors.age ? 'border-red-400 ring-2 ring-red-200' : 'border-slate-300 focus:border-emerald-500'
+                  errors.age ? 'border-red-400 ring-2 ring-red-200' : 'border-slate-300 focus:border-brandRed focus:ring-1 focus:ring-brandRed'
                 }`}
               />
               {errors.age && (
@@ -382,7 +382,7 @@ export default function Screen2Intake({
                 id="gender_select"
                 value={formData.gender}
                 onChange={(e) => setFormData(prev => ({ ...prev, gender: e.target.value }))}
-                className="w-full min-h-[44px] px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 font-medium focus:border-emerald-500"
+                className="w-full min-h-[44px] px-3 py-2 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 font-medium focus:border-brandRed focus:ring-1 focus:ring-brandRed"
               >
                 <option value="female">{isHi ? 'महिला (Female)' : 'Female'}</option>
                 <option value="male">{isHi ? 'पुरुष (Male)' : 'Male'}</option>
@@ -395,7 +395,7 @@ export default function Screen2Intake({
 
           {/* --- A. WIDOW PENSION SPECIFIC --- */}
           {formData.selectedScheme === 'widow-pension' && (
-            <div className="space-y-4 p-4 rounded-2xl bg-emerald-50/40 border border-emerald-200 animate-in fade-in duration-150">
+            <div className="space-y-4 p-4 rounded-2xl bg-red-50/30 border border-red-200 animate-in fade-in duration-150">
               <div>
                 <label htmlFor="marital_select" className="block text-sm font-bold text-slate-900 mb-1.5">
                   {isHi ? 'वैवाहिक स्थिति (Marital Status)' : 'Marital Status'} <span className="text-red-500">*</span>
@@ -434,14 +434,14 @@ export default function Screen2Intake({
 
           {/* --- B. PM-KISAN FARMER SPECIFIC --- */}
           {formData.selectedScheme === 'pm-kisan' && (
-            <div className="space-y-4 p-4 rounded-2xl bg-emerald-50/40 border border-emerald-200 animate-in fade-in duration-150">
+            <div className="space-y-4 p-4 rounded-2xl bg-red-50/30 border border-red-200 animate-in fade-in duration-150">
               <div>
                 <label className="block text-sm font-bold text-slate-900 mb-1.5">
                   {isHi ? 'क्या आपके/परिवार के नाम कृषि योग्य भूमि दर्ज है?' : 'Do you own cultivable agricultural land?'} <span className="text-red-500">*</span>
                 </label>
                 <div className="grid grid-cols-2 gap-3">
                   <label className={`min-h-[44px] p-3 rounded-xl border flex items-center justify-center gap-2 cursor-pointer transition-all ${
-                    formData.owns_cultivable_land === 'yes' ? 'bg-emerald-100 border-emerald-400 font-bold text-emerald-900 ring-1 ring-emerald-400' : 'bg-white border-slate-200'
+                    formData.owns_cultivable_land === 'yes' ? 'bg-red-100 border-brandRed font-bold text-brandRed font-bold ring-1 ring-red-300' : 'bg-white border-slate-200'
                   }`}>
                     <input
                       type="radio"
@@ -449,7 +449,7 @@ export default function Screen2Intake({
                       value="yes"
                       checked={formData.owns_cultivable_land === 'yes'}
                       onChange={() => setFormData(prev => ({ ...prev, owns_cultivable_land: 'yes' }))}
-                      className="w-4 h-4 text-emerald-600"
+                      className="w-4 h-4 text-brandRed"
                     />
                     <span>{isHi ? 'हाँ, भूमि स्वामित्व है' : 'Yes, Landowner'}</span>
                   </label>
@@ -463,7 +463,7 @@ export default function Screen2Intake({
                       value="no"
                       checked={formData.owns_cultivable_land === 'no'}
                       onChange={() => setFormData(prev => ({ ...prev, owns_cultivable_land: 'no' }))}
-                      className="w-4 h-4 text-emerald-600"
+                      className="w-4 h-4 text-brandRed"
                     />
                     <span>{isHi ? 'नहीं है' : 'No Land'}</span>
                   </label>
@@ -476,7 +476,7 @@ export default function Screen2Intake({
                 </label>
                 <div className="grid grid-cols-2 gap-3">
                   <label className={`min-h-[44px] p-3 rounded-xl border flex items-center justify-center gap-2 cursor-pointer transition-all ${
-                    formData.is_taxpayer_excluded === 'no' ? 'bg-emerald-100 border-emerald-400 font-bold text-emerald-900 ring-1 ring-emerald-400' : 'bg-white border-slate-200'
+                    formData.is_taxpayer_excluded === 'no' ? 'bg-red-100 border-brandRed font-bold text-brandRed font-bold ring-1 ring-red-300' : 'bg-white border-slate-200'
                   }`}>
                     <input
                       type="radio"
@@ -484,7 +484,7 @@ export default function Screen2Intake({
                       value="no"
                       checked={formData.is_taxpayer_excluded === 'no'}
                       onChange={() => setFormData(prev => ({ ...prev, is_taxpayer_excluded: 'no' }))}
-                      className="w-4 h-4 text-emerald-600"
+                      className="w-4 h-4 text-brandRed"
                     />
                     <span>{isHi ? 'नहीं (पात्र किसान)' : 'No (Eligible)'}</span>
                   </label>
@@ -498,7 +498,7 @@ export default function Screen2Intake({
                       value="yes"
                       checked={formData.is_taxpayer_excluded === 'yes'}
                       onChange={() => setFormData(prev => ({ ...prev, is_taxpayer_excluded: 'yes' }))}
-                      className="w-4 h-4 text-emerald-600"
+                      className="w-4 h-4 text-brandRed"
                     />
                     <span>{isHi ? 'हाँ (आयकर दाता)' : 'Yes (Taxpayer)'}</span>
                   </label>
@@ -509,14 +509,14 @@ export default function Screen2Intake({
 
           {/* --- C. SCHOLARSHIP STUDENT SPECIFIC --- */}
           {formData.selectedScheme === 'post-matric-scholarship' && (
-            <div className="space-y-4 p-4 rounded-2xl bg-emerald-50/40 border border-emerald-200 animate-in fade-in duration-150">
+            <div className="space-y-4 p-4 rounded-2xl bg-red-50/30 border border-red-200 animate-in fade-in duration-150">
               <div>
                 <label className="block text-sm font-bold text-slate-900 mb-1.5">
                   {isHi ? 'क्या आप मान्यता प्राप्त स्कूल/कॉलेज में नियमित छात्र हैं?' : 'Are you a regularly enrolled post-matric student?'} <span className="text-red-500">*</span>
                 </label>
                 <div className="grid grid-cols-2 gap-3">
                   <label className={`min-h-[44px] p-3 rounded-xl border flex items-center justify-center gap-2 cursor-pointer transition-all ${
-                    formData.is_enrolled_student === 'yes' ? 'bg-emerald-100 border-emerald-400 font-bold text-emerald-900 ring-1 ring-emerald-400' : 'bg-white border-slate-200'
+                    formData.is_enrolled_student === 'yes' ? 'bg-red-100 border-brandRed font-bold text-brandRed font-bold ring-1 ring-red-300' : 'bg-white border-slate-200'
                   }`}>
                     <input
                       type="radio"
@@ -524,7 +524,7 @@ export default function Screen2Intake({
                       value="yes"
                       checked={formData.is_enrolled_student === 'yes'}
                       onChange={() => setFormData(prev => ({ ...prev, is_enrolled_student: 'yes' }))}
-                      className="w-4 h-4 text-emerald-600"
+                      className="w-4 h-4 text-brandRed"
                     />
                     <span>{isHi ? 'हाँ, नियमित छात्र' : 'Yes, Enrolled'}</span>
                   </label>
@@ -538,7 +538,7 @@ export default function Screen2Intake({
                       value="no"
                       checked={formData.is_enrolled_student === 'no'}
                       onChange={() => setFormData(prev => ({ ...prev, is_enrolled_student: 'no' }))}
-                      className="w-4 h-4 text-emerald-600"
+                      className="w-4 h-4 text-brandRed"
                     />
                     <span>{isHi ? 'नहीं' : 'No'}</span>
                   </label>
@@ -603,7 +603,7 @@ export default function Screen2Intake({
             </label>
             <div className="grid grid-cols-2 gap-3">
               <label className={`min-h-[44px] p-3 rounded-xl border flex items-center justify-center gap-2 cursor-pointer transition-all ${
-                formData.has_bank_account === 'yes' ? 'bg-emerald-50 border-emerald-400 font-bold text-emerald-900 ring-1 ring-emerald-400' : 'bg-slate-50 border-slate-200 text-slate-700'
+                formData.has_bank_account === 'yes' ? 'bg-red-50 border-brandRed font-bold text-brandRed font-bold ring-1 ring-red-300' : 'bg-slate-50 border-slate-200 text-slate-700'
               }`}>
                 <input
                   type="radio"
@@ -611,7 +611,7 @@ export default function Screen2Intake({
                   value="yes"
                   checked={formData.has_bank_account === 'yes'}
                   onChange={() => setFormData(prev => ({ ...prev, has_bank_account: 'yes' }))}
-                  className="w-4 h-4 text-emerald-600"
+                  className="w-4 h-4 text-brandRed"
                 />
                 <span>{isHi ? 'हाँ, बैंक खाता है' : 'Yes, have account'}</span>
               </label>
@@ -625,7 +625,7 @@ export default function Screen2Intake({
                   value="no"
                   checked={formData.has_bank_account === 'no'}
                   onChange={() => setFormData(prev => ({ ...prev, has_bank_account: 'no' }))}
-                  className="w-4 h-4 text-emerald-600"
+                  className="w-4 h-4 text-brandRed"
                 />
                 <span>{isHi ? 'नहीं है' : 'No account'}</span>
               </label>
@@ -647,11 +647,11 @@ export default function Screen2Intake({
               {/* Age criteria */}
               <div className="flex items-center gap-1.5">
                 {Number(formData.age) >= (formData.selectedScheme === 'widow-pension' ? 40 : 18) ? (
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-brandRed flex-shrink-0" />
                 ) : (
                   <AlertCircle className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
                 )}
-                <span className={Number(formData.age) >= (formData.selectedScheme === 'widow-pension' ? 40 : 18) ? 'text-emerald-900 font-semibold' : 'text-slate-600'}>
+                <span className={Number(formData.age) >= (formData.selectedScheme === 'widow-pension' ? 40 : 18) ? 'text-brandRed font-bold font-semibold' : 'text-slate-600'}>
                   {isHi
                     ? `आयु: ${formData.age || '0'} वर्ष (${formData.selectedScheme === 'widow-pension' ? 'न्यूनतम 40' : 'न्यूनतम 18'})`
                     : `Age: ${formData.age || '0'} (Min ${formData.selectedScheme === 'widow-pension' ? '40' : '18'})`}
@@ -661,11 +661,11 @@ export default function Screen2Intake({
               {/* Bank account criteria */}
               <div className="flex items-center gap-1.5">
                 {formData.has_bank_account === 'yes' ? (
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-brandRed flex-shrink-0" />
                 ) : (
                   <AlertCircle className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
                 )}
-                <span className={formData.has_bank_account === 'yes' ? 'text-emerald-900 font-semibold' : 'text-slate-600'}>
+                <span className={formData.has_bank_account === 'yes' ? 'text-brandRed font-bold font-semibold' : 'text-slate-600'}>
                   {isHi ? 'DBT बैंक खाता: उपलब्ध' : 'DBT Bank Account: Ready'}
                 </span>
               </div>
@@ -674,11 +674,11 @@ export default function Screen2Intake({
               {formData.selectedScheme === 'widow-pension' && (
                 <div className="flex items-center gap-1.5">
                   {formData.marital_status === 'widowed' ? (
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-brandRed flex-shrink-0" />
                   ) : (
                     <AlertCircle className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
                   )}
-                  <span className={formData.marital_status === 'widowed' ? 'text-emerald-900 font-semibold' : 'text-slate-600'}>
+                  <span className={formData.marital_status === 'widowed' ? 'text-brandRed font-bold font-semibold' : 'text-slate-600'}>
                     {isHi ? 'वैवाहिक स्थिति: विधवा' : 'Marital status: Widowed'}
                   </span>
                 </div>
@@ -687,11 +687,11 @@ export default function Screen2Intake({
               {formData.selectedScheme === 'pm-kisan' && (
                 <div className="flex items-center gap-1.5">
                   {formData.owns_cultivable_land === 'yes' ? (
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-brandRed flex-shrink-0" />
                   ) : (
                     <AlertCircle className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
                   )}
-                  <span className={formData.owns_cultivable_land === 'yes' ? 'text-emerald-900 font-semibold' : 'text-slate-600'}>
+                  <span className={formData.owns_cultivable_land === 'yes' ? 'text-brandRed font-bold font-semibold' : 'text-slate-600'}>
                     {isHi ? 'कृषि भूमि: उपलब्ध' : 'Agricultural Land: Yes'}
                   </span>
                 </div>
@@ -700,11 +700,11 @@ export default function Screen2Intake({
               {formData.selectedScheme === 'post-matric-scholarship' && (
                 <div className="flex items-center gap-1.5">
                   {Number(formData.family_income) <= 250000 ? (
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-brandRed flex-shrink-0" />
                   ) : (
                     <AlertCircle className="w-3.5 h-3.5 text-amber-500 flex-shrink-0" />
                   )}
-                  <span className={Number(formData.family_income) <= 250000 ? 'text-emerald-900 font-semibold' : 'text-slate-600'}>
+                  <span className={Number(formData.family_income) <= 250000 ? 'text-brandRed font-bold font-semibold' : 'text-slate-600'}>
                     {isHi ? 'वार्षिक आय: ₹2.50 लाख के अंदर' : 'Income: ≤ ₹2.50 Lakh'}
                   </span>
                 </div>
@@ -713,11 +713,11 @@ export default function Screen2Intake({
               {/* Name check */}
               <div className="flex items-center gap-1.5">
                 {formData.ration_name && formData.ration_name.trim().length >= 2 ? (
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-brandRed flex-shrink-0" />
                 ) : (
                   <AlertCircle className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
                 )}
-                <span className={formData.ration_name && formData.ration_name.trim().length >= 2 ? 'text-emerald-900 font-semibold' : 'text-slate-600'}>
+                <span className={formData.ration_name && formData.ration_name.trim().length >= 2 ? 'text-brandRed font-bold font-semibold' : 'text-slate-600'}>
                   {formData.ration_name ? formData.ration_name : (isHi ? 'नाम दर्ज करें' : 'Enter name')}
                 </span>
               </div>
@@ -737,7 +737,7 @@ export default function Screen2Intake({
 
             <button
               type="submit"
-              className="min-h-[48px] px-6 py-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-base flex items-center gap-2 shadow-md shadow-emerald-200"
+              className="min-h-[48px] px-6 py-2.5 rounded-2xl bg-brandRed hover:bg-deepRed text-white font-bold text-sm sm:text-base flex items-center gap-2 shadow-md shadow-brandRed/25 cursor-pointer"
             >
               <span>{isHi ? 'पात्रता जांचें' : 'Check Eligibility'}</span>
               <ArrowRight className="w-5 h-5" />
@@ -748,3 +748,6 @@ export default function Screen2Intake({
     </div>
   );
 }
+
+
+

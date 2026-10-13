@@ -95,7 +95,7 @@ export default function SchemeCalculatorModal({
 
         {/* Modal Header */}
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center shadow-sm">
+          <div className="w-10 h-10 rounded-2xl bg-red-100 text-brandRed font-bold flex items-center justify-center shadow-sm">
             <Calculator className="w-5 h-5" />
           </div>
           <div>
@@ -133,7 +133,7 @@ export default function SchemeCalculatorModal({
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            <Tractor className="w-3.5 h-3.5 text-emerald-600" />
+            <Tractor className="w-3.5 h-3.5 text-brandRed" />
             <span>{isHi ? 'पीएम-किसान' : 'PM-KISAN'}</span>
           </button>
           <button
@@ -156,7 +156,7 @@ export default function SchemeCalculatorModal({
           <div>
             <div className="flex justify-between items-center text-xs font-bold text-slate-700 mb-1.5">
               <span>{isHi ? 'आयु (वर्ष)' : 'Age (Years)'}</span>
-              <span className="px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 font-mono text-sm">
+              <span className="px-2 py-0.5 rounded bg-red-100 text-brandRed font-bold font-mono text-sm">
                 {age} {isHi ? 'वर्ष' : 'yrs'}
               </span>
             </div>
@@ -166,7 +166,7 @@ export default function SchemeCalculatorModal({
               max="90"
               value={age}
               onChange={(e) => setAge(Number(e.target.value))}
-              className="w-full accent-emerald-600 cursor-pointer"
+              className="w-full accent-brandRed cursor-pointer"
             />
           </div>
 
@@ -178,7 +178,7 @@ export default function SchemeCalculatorModal({
                   type="checkbox"
                   checked={isWidowed}
                   onChange={(e) => setIsWidowed(e.target.checked)}
-                  className="w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500"
+                  className="w-4 h-4 rounded text-brandRed focus:ring-brandRed"
                 />
                 <span>{isHi ? 'वैवाहिक स्थिति: विधवा महिला' : 'Marital status: Widow'}</span>
               </label>
@@ -192,7 +192,7 @@ export default function SchemeCalculatorModal({
                   type="checkbox"
                   checked={hasLand}
                   onChange={(e) => setHasLand(e.target.checked)}
-                  className="w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500"
+                  className="w-4 h-4 rounded text-brandRed focus:ring-brandRed"
                 />
                 <span>{isHi ? 'राजस्व रिकॉर्ड में कृषि योग्य भूमि दर्ज है' : 'Holds cultivable land in revenue record'}</span>
               </label>
@@ -235,7 +235,7 @@ export default function SchemeCalculatorModal({
         {/* Live Simulation Card */}
         <div className={`p-5 rounded-2xl border text-center transition-all ${
           currentCalc.eligible
-            ? 'bg-gradient-to-br from-emerald-500 to-teal-700 text-white shadow-lg'
+            ? 'bg-gradient-to-br from-brandRed to-deepRed text-white shadow-lg'
             : 'bg-amber-50 border-amber-300 text-amber-950'
         }`}>
           <div className="text-xs uppercase font-bold tracking-wider opacity-90 mb-1">
@@ -262,7 +262,7 @@ export default function SchemeCalculatorModal({
             {currentCalc.reasons.map((r, i) => (
               <div key={i} className="flex items-center gap-2">
                 {r.passed ? (
-                  <CheckCircle2 className="w-4 h-4 text-emerald-200 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-red-200 flex-shrink-0" />
                 ) : (
                   <AlertCircle className="w-4 h-4 text-amber-700 flex-shrink-0" />
                 )}
@@ -287,7 +287,7 @@ export default function SchemeCalculatorModal({
           <button
             type="button"
             onClick={handleStartScheme}
-            className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-md shadow-emerald-200"
+            className="px-5 py-2.5 rounded-xl bg-brandRed hover:bg-deepRed text-white font-bold text-xs sm:text-sm flex items-center gap-2 shadow-md shadow-brandRed/25"
           >
             <span>{isHi ? 'इस योजना के लिए आवेदन भरें' : 'Apply for this Scheme'}</span>
             <ArrowRight className="w-4 h-4" />
@@ -297,4 +297,6 @@ export default function SchemeCalculatorModal({
     </div>
   );
 }
+
+
 

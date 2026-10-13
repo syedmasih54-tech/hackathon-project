@@ -37,8 +37,8 @@ export default function Screen3Eligibility({
 
   if (loading) {
     return (
-      <div className="max-w-2xl mx-auto py-12 px-4 text-center">
-        <div className="animate-spin w-8 h-8 border-4 border-emerald-600 border-t-transparent rounded-full mx-auto mb-3"></div>
+      <div className="max-w-5xl mx-auto py-12 px-4 text-center">
+        <div className="animate-spin w-8 h-8 border-4 border-brandRed border-t-transparent rounded-full mx-auto mb-3"></div>
         <p className="text-sm font-semibold text-slate-600">
           {isHi ? 'सरकारी नियम लोड हो रहे हैं...' : 'Loading official scheme rules...'}
         </p>
@@ -50,12 +50,12 @@ export default function Screen3Eligibility({
   const evaluation = evaluateRules(rulesConfig, userData);
 
   return (
-    <div className="max-w-2xl mx-auto py-6 px-4">
+    <div className="max-w-5xl mx-auto py-6 px-4">
       <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/90 space-y-6">
         {/* Step Indicator & Header Actions */}
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 text-brandRed font-bold text-xs font-bold uppercase tracking-wider mb-2">
               <FileText className="w-3.5 h-3.5" />
               {isHi ? 'चरण 3: पात्रता परिणाम' : 'Step 3: Eligibility Result'}
             </div>
@@ -113,12 +113,12 @@ export default function Screen3Eligibility({
         {/* Primary Verdict Banner: NEVER "Approved"! Must say "You may be eligible" */}
         <div className={`p-5 sm:p-6 rounded-2xl border text-center ${
           evaluation.isPotentiallyEligible
-            ? 'bg-gradient-to-b from-emerald-50 to-emerald-100/60 border-emerald-300'
+            ? 'bg-gradient-to-b from-red-50 to-rose-100/60 border-red-300'
             : 'bg-gradient-to-b from-slate-50 to-slate-100 border-slate-300'
         }`}>
           <div className="inline-flex p-3 rounded-2xl mb-3 shadow-inner bg-white">
             {evaluation.isPotentiallyEligible ? (
-              <CheckCircle2 className="w-8 h-8 text-emerald-600" />
+              <CheckCircle2 className="w-8 h-8 text-brandRed" />
             ) : (
               <XCircle className="w-8 h-8 text-amber-600" />
             )}
@@ -138,8 +138,8 @@ export default function Screen3Eligibility({
 
         {/* Matched Conditions */}
         <div>
-          <h2 className="text-sm font-extrabold uppercase tracking-wider text-emerald-800 flex items-center gap-2 mb-3">
-            <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+          <h2 className="text-sm font-extrabold uppercase tracking-wider text-brandRed font-bold flex items-center gap-2 mb-3">
+            <CheckCircle2 className="w-4 h-4 text-brandRed" />
             {isHi ? `पूरी हुई शर्तें (${evaluation.matchedRules.length})` : `Conditions Matched (${evaluation.matchedRules.length})`}
           </h2>
           {evaluation.matchedRules.length === 0 ? (
@@ -151,10 +151,10 @@ export default function Screen3Eligibility({
               {evaluation.matchedRules.map(rule => (
                 <div
                   key={rule.id}
-                  className="p-3.5 rounded-2xl bg-emerald-50/60 border border-emerald-200 flex items-start justify-between gap-3 text-sm"
+                  className="p-3.5 rounded-2xl bg-red-50/40 border border-red-200 flex items-start justify-between gap-3 text-sm"
                 >
                   <div className="flex items-start gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-brandRed mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="font-bold text-slate-900">
                         {isHi ? rule.title_hi : rule.title_en}
@@ -164,7 +164,7 @@ export default function Screen3Eligibility({
                       </p>
                     </div>
                   </div>
-                  <span className="text-[11px] font-mono text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-md flex-shrink-0">
+                  <span className="text-[11px] font-mono text-brandRed font-bold bg-red-100 px-2 py-0.5 rounded-md flex-shrink-0">
                     {rule.condition}
                   </span>
                 </div>
@@ -214,10 +214,10 @@ export default function Screen3Eligibility({
             className="w-full min-h-[44px] px-4 py-3 flex items-center justify-between text-left font-bold text-slate-900 hover:bg-slate-100/70"
           >
             <div className="flex items-center gap-2 text-sm">
-              <HelpCircle className="w-4 h-4 text-emerald-600" />
+              <HelpCircle className="w-4 h-4 text-brandRed" />
               <span>{isHi ? 'यह परिणाम कैसे तय हुआ? (Why?)' : 'How was this calculated? (Why?)'}</span>
             </div>
-            <span className="text-xs text-emerald-700 underline font-semibold">
+            <span className="text-xs text-brandRed underline font-semibold">
               {showWhyPanel ? (isHi ? 'छिपाएं' : 'Hide') : (isHi ? 'देखें' : 'View')}
             </span>
           </button>
@@ -237,7 +237,7 @@ export default function Screen3Eligibility({
                     href={evaluation.sourceUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-emerald-700 font-bold hover:underline flex items-center gap-1"
+                    className="text-brandRed font-bold hover:underline flex items-center gap-1"
                   >
                     <span>{evaluation.sourceUrl}</span>
                     <ExternalLink className="w-3 h-3" />
@@ -270,7 +270,7 @@ export default function Screen3Eligibility({
           <button
             type="button"
             onClick={onNext}
-            className="min-h-[48px] px-6 py-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-base flex items-center gap-2 shadow-md shadow-emerald-200"
+            className="min-h-[48px] px-6 py-2.5 rounded-2xl bg-brandRed hover:bg-deepRed text-white font-bold text-sm sm:text-base flex items-center gap-2 shadow-md shadow-brandRed/25 cursor-pointer"
           >
             <span>{isHi ? 'दस्तावेज़ डॉक्टर (दस्तावेज़ जांच)' : 'Proceed to Document Doctor'}</span>
             <ArrowRight className="w-5 h-5" />
@@ -280,3 +280,4 @@ export default function Screen3Eligibility({
     </div>
   );
 }
+

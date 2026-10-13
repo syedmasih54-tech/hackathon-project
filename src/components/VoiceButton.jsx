@@ -58,7 +58,7 @@ export default function VoiceButton({ onTranscript, lang = 'hi', label = 'बो
         className={`min-h-[44px] min-w-[44px] px-3 py-2 rounded-xl border flex items-center justify-center gap-1.5 text-xs font-semibold transition-all shadow-sm ${
           isListening
             ? 'bg-red-50 border-red-300 text-red-600 animate-pulse ring-2 ring-red-400'
-            : 'bg-emerald-50 hover:bg-emerald-100 border-emerald-200 text-emerald-800 hover:text-emerald-900'
+            : 'bg-red-50 hover:bg-red-100 border-red-200 text-brandRed font-bold hover:text-deepRed'
         }`}
       >
         {isListening ? (
@@ -70,7 +70,7 @@ export default function VoiceButton({ onTranscript, lang = 'hi', label = 'बो
           </>
         ) : (
           <>
-            <Mic className="w-4 h-4 text-emerald-600" />
+            <Mic className="w-4 h-4 text-brandRed" />
             <span className="hidden sm:inline">{label}</span>
           </>
         )}
@@ -84,3 +84,4 @@ export default function VoiceButton({ onTranscript, lang = 'hi', label = 'बो
     </div>
   );
 }
+

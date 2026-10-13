@@ -45,7 +45,7 @@ export default function SpeakButton({
       } ${
         playing
           ? 'bg-amber-100 text-amber-900 border-2 border-amber-400 ring-2 ring-amber-300 animate-pulse'
-          : 'bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 text-emerald-800'
+          : 'bg-red-50 hover:bg-red-100 border border-red-200 text-brandRed font-bold'
       } ${className}`}
     >
       {playing ? (
@@ -60,11 +60,12 @@ export default function SpeakButton({
         </>
       ) : (
         <>
-          <Volume2 className={isSmall ? 'w-3.5 h-3.5 text-emerald-700' : 'w-4 h-4 text-emerald-700'} />
+          <Volume2 className={isSmall ? 'w-3.5 h-3.5 text-brandRed' : 'w-4 h-4 text-brandRed'} />
           <span>{lang === 'hi' ? labelHi : labelEn}</span>
         </>
       )}
     </button>
   );
 }
+
 

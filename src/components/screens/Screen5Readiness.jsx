@@ -41,12 +41,12 @@ export default function Screen5Readiness({
   const percentage = Math.round((satisfiedCount / totalItems) * 100);
 
   return (
-    <div className="max-w-2xl mx-auto py-6 px-4">
+    <div className="max-w-5xl mx-auto py-6 px-4">
       <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/90 space-y-6">
         {/* Step Indicator & Header Actions */}
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 text-brandRed font-bold text-xs font-bold uppercase tracking-wider mb-2">
               <Award className="w-3.5 h-3.5" />
               {isHi ? 'चरण 5: तैयारी कार्ड' : 'Step 5: Readiness Card'}
             </div>
@@ -83,7 +83,7 @@ export default function Screen5Readiness({
 
         {/* 100% Celebration Banner */}
         {percentage === 100 && (
-          <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white shadow-lg flex items-center gap-3 animate-in zoom-in-95 duration-300">
+          <div className="p-4 rounded-2xl bg-gradient-to-r from-brandRed to-deepRed text-white shadow-lg flex items-center gap-3 animate-in zoom-in-95 duration-300">
             <div className="p-2.5 rounded-xl bg-white/20 flex-shrink-0">
               <Sparkles className="w-6 h-6 text-yellow-300 animate-spin [animation-duration:6s]" />
             </div>
@@ -91,7 +91,7 @@ export default function Screen5Readiness({
               <p className="font-black text-base">
                 {isHi ? '🎉 बधाई! आपका आवेदन 100% तैयार है' : '🎉 Congratulations! 100% Ready'}
               </p>
-              <p className="text-emerald-100 mt-0.5">
+              <p className="text-red-100 mt-0.5">
                 {isHi
                   ? 'आपके सभी 5 मुख्य मापदंड पूरे हैं। अब आप अपने नज़दीकी CSC केंद्र अथवा तहसील में बेझिझक आवेदन जमा कर सकते हैं।'
                   : 'All 5 key criteria are satisfied. You are fully prepared to submit your case at your nearest CSC / Block office.'}
@@ -104,7 +104,7 @@ export default function Screen5Readiness({
         <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-6 text-white shadow-xl relative overflow-hidden">
           <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
-              <span className="text-xs uppercase font-bold tracking-widest text-emerald-400">
+              <span className="text-xs uppercase font-bold tracking-widest text-red-400">
                 {isHi ? 'कुल तैयारी' : 'Overall Readiness'}
               </span>
               <div className="flex items-baseline gap-2 mt-1">
@@ -137,7 +137,7 @@ export default function Screen5Readiness({
                   cx="50"
                   cy="50"
                   r="40"
-                  className="stroke-emerald-400 transition-all duration-700"
+                  className="stroke-red-500 transition-all duration-700"
                   strokeWidth="10"
                   strokeDasharray={251.2}
                   strokeDashoffset={251.2 - (251.2 * percentage) / 100}
@@ -145,7 +145,7 @@ export default function Screen5Readiness({
                   fill="transparent"
                 />
               </svg>
-              <div className="absolute font-extrabold text-lg text-emerald-300">
+              <div className="absolute font-extrabold text-lg text-red-300">
                 {percentage}%
               </div>
             </div>
@@ -172,7 +172,7 @@ export default function Screen5Readiness({
                   key={item.id}
                   className={`p-4 rounded-2xl border transition-all ${
                     isSatisfied
-                      ? 'bg-emerald-50/60 border-emerald-300'
+                      ? 'bg-red-50/50 border-red-200'
                       : 'bg-red-50/60 border-red-200'
                   }`}
                 >
@@ -180,7 +180,7 @@ export default function Screen5Readiness({
                     <div className="flex items-start gap-3 flex-1">
                       <div className="mt-0.5 flex-shrink-0">
                         {isSatisfied ? (
-                          <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                          <CheckCircle2 className="w-5 h-5 text-brandRed" />
                         ) : (
                           <XCircle className="w-5 h-5 text-red-600" />
                         )}
@@ -190,7 +190,7 @@ export default function Screen5Readiness({
                           {isHi ? item.label_hi : item.label_en}
                         </h3>
                         {isSatisfied ? (
-                          <p className="text-xs text-emerald-800 mt-0.5 font-medium">
+                          <p className="text-xs text-brandRed font-bold mt-0.5 font-medium">
                             {isHi ? 'सत्यापित / तैयार है' : 'Verified & Satisfied'}
                             {resolvedOverrides[item.id] && ` (${isHi ? 'सिम्युलेटेड' : 'Simulated'})`}
                           </p>
@@ -207,7 +207,7 @@ export default function Screen5Readiness({
 
                         {/* Interactive What-If Toggle for items missing */}
                         {!item.satisfied && (
-                          <label className="flex items-center gap-2 mt-2.5 pt-2 border-t border-slate-200/80 cursor-pointer text-xs font-semibold text-slate-700 hover:text-emerald-800">
+                          <label className="flex items-center gap-2 mt-2.5 pt-2 border-t border-slate-200/80 cursor-pointer text-xs font-semibold text-slate-700 hover:text-brandRed font-bold">
                             <input
                               type="checkbox"
                               checked={!!resolvedOverrides[item.id]}
@@ -215,7 +215,7 @@ export default function Screen5Readiness({
                                 ...prev,
                                 [item.id]: e.target.checked
                               }))}
-                              className="w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500 border-slate-300"
+                              className="w-4 h-4 rounded text-brandRed focus:ring-brandRed border-slate-300"
                             />
                             <span>
                               {isHi
@@ -247,7 +247,7 @@ export default function Screen5Readiness({
           <button
             type="button"
             onClick={onNext}
-            className="min-h-[48px] px-6 py-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-base flex items-center gap-2 shadow-md shadow-emerald-200"
+            className="min-h-[48px] px-6 py-2.5 rounded-2xl bg-brandRed hover:bg-deepRed text-white font-bold text-sm sm:text-base flex items-center gap-2 shadow-md shadow-brandRed/25 cursor-pointer"
           >
             <span>{isHi ? 'आवेदन स्थिति देखें (Status Tracker)' : 'Proceed to Status Tracker'}</span>
             <ArrowRight className="w-5 h-5" />
@@ -257,3 +257,4 @@ export default function Screen5Readiness({
     </div>
   );
 }
+

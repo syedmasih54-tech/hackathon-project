@@ -87,12 +87,12 @@ export default function Screen6Timeline({
   };
 
   return (
-    <div className="max-w-2xl mx-auto py-6 px-4">
+    <div className="max-w-5xl mx-auto py-6 px-4">
       <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/90 space-y-6">
         {/* Step Indicator */}
         <div className="flex items-start justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 text-brandRed font-bold text-xs font-bold uppercase tracking-wider mb-2">
               <Clock className="w-3.5 h-3.5" />
               {isHi ? 'चरण 6: साक्ष्य टाइमलाइन' : 'Step 6: Evidence Timeline'}
             </div>
@@ -109,7 +109,7 @@ export default function Screen6Timeline({
           <button
             type="button"
             onClick={() => setShowAddForm(true)}
-            className="min-h-[44px] px-3.5 py-2 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow-md shadow-emerald-200 flex-shrink-0"
+            className="min-h-[44px] px-3.5 py-2 rounded-2xl bg-brandRed hover:bg-deepRed text-white font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow-md shadow-brandRed/25 cursor-pointer flex-shrink-0"
           >
             <PlusCircle className="w-4 h-4" />
             <span>{isHi ? 'नया रिकॉर्ड' : 'Add Entry'}</span>
@@ -118,7 +118,7 @@ export default function Screen6Timeline({
 
         {/* Add Entry Modal / Form */}
         {showAddForm && (
-          <div className="p-5 rounded-2xl border-2 border-emerald-400 bg-emerald-50/40 space-y-4 animate-in fade-in duration-150">
+          <div className="p-5 rounded-2xl border-2 border-red-300 bg-red-50/30 space-y-4 animate-in fade-in duration-150">
             <div className="flex items-center justify-between">
               <h2 className="font-bold text-slate-900 text-base">
                 {isHi ? 'नया टाइमलाइन रिकॉर्ड जोड़ें' : 'Add Timeline Entry'}
@@ -214,8 +214,8 @@ export default function Screen6Timeline({
                 <label className="block text-xs font-bold text-slate-700 mb-1">
                   {isHi ? 'पावती / रसीद की फ़ोटो (केवल डिवाइस पर सुरक्षित)' : 'Acknowledgement Slip Photo (Stored on device only)'}
                 </label>
-                <label className="flex items-center gap-2 p-3 rounded-xl border border-dashed border-emerald-400 bg-white hover:bg-emerald-50 cursor-pointer text-xs font-bold text-emerald-800">
-                  <Camera className="w-4 h-4 text-emerald-600" />
+                <label className="flex items-center gap-2 p-3 rounded-xl border border-dashed border-red-300 bg-white hover:bg-red-50/50 cursor-pointer text-xs font-bold text-brandRed">
+                  <Camera className="w-4 h-4 text-brandRed" />
                   <span>{photoDataUrl ? (isHi ? 'फ़ोटो चुनी गई (बदलें)' : 'Photo Selected (Change)') : (isHi ? 'रसीद की फ़ोटो लें या चुनें' : 'Capture Receipt Photo')}</span>
                   <input
                     type="file"
@@ -242,7 +242,7 @@ export default function Screen6Timeline({
                 </button>
                 <button
                   type="submit"
-                  className="min-h-[44px] px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm"
+                  className="min-h-[44px] px-5 py-2 rounded-xl bg-brandRed hover:bg-deepRed text-white font-bold text-xs shadow-sm"
                 >
                   {isHi ? 'रिकॉर्ड सहेजें' : 'Save Entry'}
                 </button>
@@ -263,7 +263,7 @@ export default function Screen6Timeline({
             </p>
           </div>
         ) : (
-          <div className="relative pl-6 sm:pl-8 border-l-2 border-emerald-300 space-y-6">
+          <div className="relative pl-6 sm:pl-8 border-l-2 border-red-200 space-y-6">
             {entries.map((entry) => {
               const isUnmasked = showUnmaskMap[entry.id];
               const displayRef = entry.reference_number
@@ -273,13 +273,13 @@ export default function Screen6Timeline({
               return (
                 <div key={entry.id} className="relative group">
                   {/* Timeline Node Dot */}
-                  <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-emerald-600 ring-4 ring-emerald-100" />
+                  <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-brandRed ring-4 ring-red-100" />
 
                   {/* Timeline Entry Card */}
                   <div className="bg-slate-50 hover:bg-slate-100/70 p-4 rounded-2xl border border-slate-200 transition-all">
                     <div className="flex items-start justify-between gap-3">
                       <div>
-                        <span className="text-xs font-bold text-emerald-800 bg-emerald-100/80 px-2.5 py-0.5 rounded-full inline-block mb-1">
+                        <span className="text-xs font-bold text-brandRed bg-red-100 px-2.5 py-0.5 rounded-full inline-block mb-1">
                           {entry.date}
                         </span>
                         <h2 className="font-extrabold text-slate-900 text-sm capitalize">
@@ -381,7 +381,7 @@ export default function Screen6Timeline({
           <button
             type="button"
             onClick={onNext}
-            className="min-h-[48px] px-6 py-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-base flex items-center gap-2 shadow-md shadow-emerald-200"
+            className="min-h-[48px] px-6 py-2.5 rounded-2xl bg-brandRed hover:bg-deepRed text-white font-bold text-sm sm:text-base flex items-center gap-2 shadow-md shadow-brandRed/25 cursor-pointer"
           >
             <span>{isHi ? 'शिकायत मसौदा (Complaint Draft)' : 'Proceed to Complaint Draft'}</span>
             <ArrowRight className="w-5 h-5" />
@@ -391,3 +391,6 @@ export default function Screen6Timeline({
     </div>
   );
 }
+
+
+

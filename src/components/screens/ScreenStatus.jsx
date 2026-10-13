@@ -68,16 +68,16 @@ export default function ScreenStatus({
     { id: 'block_verification', title_hi: 'ब्लॉक सत्यापन प्रक्रियाधीन (Under Verification)', title_en: 'Under Verification', color: 'bg-indigo-100 text-indigo-800' },
     { id: 'delayed', title_hi: 'अनावश्यक विलंब (Delayed > 45 Days)', title_en: 'Delayed (> 45 Days)', color: 'bg-amber-100 text-amber-900 border border-amber-300' },
     { id: 'objection', title_hi: 'आपत्ति / दस्तावेज़ सुधार आवश्यक (Action Required)', title_en: 'Action Required', color: 'bg-red-100 text-red-900' },
-    { id: 'approved', title_hi: 'स्वीकृत एवं पेंशन जारी (Approved / Disbursed)', title_en: 'Sanctioned / Active', color: 'bg-emerald-100 text-emerald-900' }
+    { id: 'approved', title_hi: 'स्वीकृत एवं पेंशन जारी (Approved / Disbursed)', title_en: 'Sanctioned / Active', color: 'bg-red-100 text-brandRed font-bold' }
   ];
 
   return (
-    <div className="max-w-2xl mx-auto py-6 px-4">
+    <div className="max-w-5xl mx-auto py-6 px-4">
       <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/90 space-y-6">
         {/* Section Header */}
         <div className="flex items-start justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 text-brandRed font-bold text-xs font-bold uppercase tracking-wider mb-2">
               <Activity className="w-3.5 h-3.5" />
               {isHi ? 'अनुभाग: आवेदन स्थिति ट्रैकर' : 'Section: Application Status Tracker'}
             </div>
@@ -181,7 +181,7 @@ export default function ScreenStatus({
                 key={opt.id}
                 className={`flex items-center justify-between p-3.5 rounded-xl border cursor-pointer transition-all ${
                   currentStatus === opt.id
-                    ? 'bg-emerald-50 border-emerald-400 ring-2 ring-emerald-400 font-bold'
+                    ? 'bg-red-50 border-brandRed ring-2 ring-brandRed font-bold'
                     : 'bg-white border-slate-200 hover:bg-slate-50 font-medium'
                 }`}
               >
@@ -192,7 +192,7 @@ export default function ScreenStatus({
                     value={opt.id}
                     checked={currentStatus === opt.id}
                     onChange={() => setCurrentStatus(opt.id)}
-                    className="w-4 h-4 text-emerald-600 focus:ring-emerald-500"
+                    className="w-4 h-4 text-brandRed focus:ring-brandRed"
                   />
                   <span className="text-xs sm:text-sm text-slate-900">
                     {isHi ? opt.title_hi : opt.title_en}
@@ -216,7 +216,7 @@ export default function ScreenStatus({
             value={statusReason}
             onChange={(e) => setStatusReason(e.target.value)}
             placeholder={isHi ? 'उदा. सत्यापन रिपोर्ट लंबित है / दस्तावेज स्पष्ट नहीं हैं...' : 'e.g. Verification pending at block level...'}
-            className="w-full p-3.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:border-emerald-500"
+            className="w-full p-3.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:border-brandRed"
           />
         </div>
 
@@ -230,7 +230,7 @@ export default function ScreenStatus({
             {isHi ? 'स्थिति अपडेट सहेजें' : 'Save Status Update'}
           </button>
           {saveSuccess && (
-            <span className="text-xs text-emerald-700 font-bold">
+            <span className="text-xs text-brandRed font-bold font-bold">
               ✓ {isHi ? 'सहेजा गया!' : 'Saved locally!'}
             </span>
           )}
@@ -246,14 +246,14 @@ export default function ScreenStatus({
             {/* Jump to Timeline */}
             <div
               onClick={() => onNavigate('timeline')}
-              className="p-4 rounded-2xl border border-slate-200 hover:border-emerald-400 bg-slate-50 hover:bg-emerald-50/50 cursor-pointer transition-all group"
+              className="p-4 rounded-2xl border border-slate-200 hover:border-brandRed bg-slate-50 hover:bg-red-50/40 cursor-pointer transition-all group"
             >
               <div className="flex items-center justify-between">
                 <span className="font-extrabold text-sm text-slate-900 flex items-center gap-1.5">
-                  <Clock className="w-4 h-4 text-emerald-600" />
+                  <Clock className="w-4 h-4 text-brandRed" />
                   {isHi ? 'साक्ष्य टाइमलाइन' : 'Evidence Timeline'}
                 </span>
-                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-600 group-hover:translate-x-0.5 transition-all" />
+                <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-brandRed group-hover:translate-x-0.5 transition-all" />
               </div>
               <p className="text-xs text-slate-500 mt-1">
                 {isHi ? 'ब्लॉक विज़िट, नोट और पावती रसीद की फ़ोटो जोड़ें।' : 'Log office visits and attach slip photos.'}
@@ -282,3 +282,6 @@ export default function ScreenStatus({
     </div>
   );
 }
+
+
+

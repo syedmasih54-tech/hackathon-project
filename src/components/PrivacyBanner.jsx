@@ -5,12 +5,12 @@ export default function PrivacyBanner({ lang = 'hi' }) {
   const isHi = lang === 'hi';
 
   return (
-    <aside aria-label="Privacy notice" className="bg-emerald-50/80 border border-emerald-200/90 rounded-xl p-3 px-4 flex items-center gap-3 text-xs md:text-sm text-emerald-900 shadow-sm">
-      <div className="p-1.5 bg-emerald-100 rounded-lg text-emerald-700 flex-shrink-0">
-        <ShieldCheck className="w-4 h-4" />
+    <aside aria-label="Privacy notice" className="bg-red-50/70 border border-red-200/80 rounded-2xl p-3.5 px-5 flex items-center gap-3.5 text-xs md:text-sm text-red-950 shadow-sm">
+      <div className="p-2 bg-red-100 rounded-xl text-brandRed flex-shrink-0">
+        <ShieldCheck className="w-5 h-5" />
       </div>
       <p className="leading-relaxed">
-        <strong className="font-semibold">
+        <strong className="font-bold text-brandRed">
           {isHi ? 'गोपनीयता सुरक्षा:' : 'Privacy Protection:'}
         </strong>{' '}
         {isHi

@@ -154,12 +154,12 @@ export default function Screen4DocumentDoctor({
   };
 
   return (
-    <div className="max-w-2xl mx-auto py-6 px-4">
+    <div className="max-w-5xl mx-auto py-6 px-4">
       <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/90 space-y-6">
         {/* Step Indicator & Header Actions */}
         <div className="flex items-start justify-between gap-4 flex-wrap">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 text-brandRed font-bold text-xs font-bold uppercase tracking-wider mb-2">
               <FileCheck2 className="w-3.5 h-3.5" />
               {isHi ? 'चरण 4: दस्तावेज़ डॉक्टर' : 'Step 4: Document Doctor'}
             </div>
@@ -208,8 +208,8 @@ export default function Screen4DocumentDoctor({
 
             {/* Upload Action */}
             <div className="flex flex-col sm:flex-row items-center gap-3">
-              <label className="w-full sm:w-auto flex-1 min-h-[44px] px-4 py-3 rounded-xl border border-dashed border-emerald-400 bg-emerald-50/50 hover:bg-emerald-100/60 text-emerald-800 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer transition-all">
-                <Camera className="w-4 h-4 text-emerald-600" />
+              <label className="w-full sm:w-auto flex-1 min-h-[44px] px-4 py-3 rounded-xl border border-dashed border-red-300 bg-red-50/40 hover:bg-red-100/60 text-brandRed font-bold text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer transition-all">
+                <Camera className="w-4 h-4 text-brandRed" />
                 <span>{rationImage ? (isHi ? 'अन्य फ़ोटो बदलें' : 'Change Photo') : (isHi ? 'फ़ोटो लें या चुनें' : 'Take or Upload Photo')}</span>
                 <input
                   type="file"
@@ -237,7 +237,7 @@ export default function Screen4DocumentDoctor({
                   disabled={isProcessingRation}
                   className="w-full sm:w-auto min-h-[44px] px-3.5 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-semibold flex items-center justify-center gap-1.5"
                 >
-                  <Sparkles className="w-3.5 h-3.5 text-emerald-700" />
+                  <Sparkles className="w-3.5 h-3.5 text-brandRed" />
                   <span>{isProcessingRation ? (isHi ? 'पढ़ रहे हैं...' : 'Reading...') : (isHi ? 'AI से दोबारा पढ़ें' : 'Re-scan with AI')}</span>
                 </button>
               )}
@@ -261,7 +261,7 @@ export default function Screen4DocumentDoctor({
                   value={rationName}
                   onChange={(e) => setRationName(e.target.value)}
                   placeholder={isHi ? 'उदा. सुनीता देवी' : 'e.g. Sunita Devi'}
-                  className="w-full min-h-[44px] px-3.5 py-2 rounded-xl border border-slate-300 text-sm font-semibold text-slate-900 bg-white focus:border-emerald-500"
+                  className="w-full min-h-[44px] px-3.5 py-2 rounded-xl border border-slate-300 text-sm font-semibold text-slate-900 bg-white focus:border-brandRed focus:ring-1 focus:ring-brandRed"
                 />
                 <Edit3 className="w-4 h-4 text-slate-400 absolute right-3 top-3 pointer-events-none" />
               </div>
@@ -292,8 +292,8 @@ export default function Screen4DocumentDoctor({
 
             {/* Upload Action */}
             <div className="flex flex-col sm:flex-row items-center gap-3">
-              <label className="w-full sm:w-auto flex-1 min-h-[44px] px-4 py-3 rounded-xl border border-dashed border-emerald-400 bg-emerald-50/50 hover:bg-emerald-100/60 text-emerald-800 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer transition-all">
-                <Camera className="w-4 h-4 text-emerald-600" />
+              <label className="w-full sm:w-auto flex-1 min-h-[44px] px-4 py-3 rounded-xl border border-dashed border-red-300 bg-red-50/40 hover:bg-red-100/60 text-brandRed font-bold text-xs sm:text-sm flex items-center justify-center gap-2 cursor-pointer transition-all">
+                <Camera className="w-4 h-4 text-brandRed" />
                 <span>{passbookImage ? (isHi ? 'अन्य पासबुक फ़ोटो चुनें' : 'Change Passbook') : (isHi ? 'पासबुक फ़ोटो लें या चुनें' : 'Take or Upload Passbook')}</span>
                 <input
                   type="file"
@@ -321,7 +321,7 @@ export default function Screen4DocumentDoctor({
                   disabled={isProcessingPassbook}
                   className="w-full sm:w-auto min-h-[44px] px-3.5 py-2 rounded-xl bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-semibold flex items-center justify-center gap-1.5"
                 >
-                  <Sparkles className="w-3.5 h-3.5 text-emerald-700" />
+                  <Sparkles className="w-3.5 h-3.5 text-brandRed" />
                   <span>{isProcessingPassbook ? (isHi ? 'पढ़ रहे हैं...' : 'Reading...') : (isHi ? 'AI से दोबारा पढ़ें' : 'Re-scan with AI')}</span>
                 </button>
               )}
@@ -345,7 +345,7 @@ export default function Screen4DocumentDoctor({
                   value={passbookName}
                   onChange={(e) => setPassbookName(e.target.value)}
                   placeholder={isHi ? 'उदा. सुनीता डी / Sunita D.' : 'e.g. Sunita Devi'}
-                  className="w-full min-h-[44px] px-3.5 py-2 rounded-xl border border-slate-300 text-sm font-semibold text-slate-900 bg-white focus:border-emerald-500"
+                  className="w-full min-h-[44px] px-3.5 py-2 rounded-xl border border-slate-300 text-sm font-semibold text-slate-900 bg-white focus:border-brandRed focus:ring-1 focus:ring-brandRed"
                 />
                 <Edit3 className="w-4 h-4 text-slate-400 absolute right-3 top-3 pointer-events-none" />
               </div>
@@ -357,13 +357,13 @@ export default function Screen4DocumentDoctor({
         {rationName && passbookName && (
           <div className={`p-4 sm:p-5 rounded-2xl border transition-all ${
             comparison.match
-              ? 'bg-emerald-50/70 border-emerald-300'
+              ? 'bg-red-50/70 border-red-300'
               : 'bg-amber-50/80 border-amber-300'
           }`}>
             <div className="flex items-start gap-3">
               <div className="p-2 rounded-xl bg-white shadow-sm flex-shrink-0">
                 {comparison.match ? (
-                  <CheckCircle2 className="w-6 h-6 text-emerald-600" />
+                  <CheckCircle2 className="w-6 h-6 text-brandRed" />
                 ) : (
                   <AlertTriangle className="w-6 h-6 text-amber-600" />
                 )}
@@ -376,7 +376,7 @@ export default function Screen4DocumentDoctor({
                       : (isHi ? 'संभावित नाम में अंतर पाया गया' : 'Possible Name Difference Found')}
                   </h3>
                   <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${
-                    comparison.match ? 'bg-emerald-200 text-emerald-900' : 'bg-amber-200 text-amber-900'
+                    comparison.match ? 'bg-red-100 text-brandRed font-bold' : 'bg-amber-200 text-amber-900'
                   }`}>
                     {comparison.percentage}% {isHi ? 'समानता स्कोर' : 'Similarity Score'}
                   </span>
@@ -437,7 +437,7 @@ export default function Screen4DocumentDoctor({
             disabled={!rationName.trim()}
             className={`min-h-[48px] px-6 py-2.5 rounded-2xl font-bold text-sm sm:text-base flex items-center gap-2 shadow-md ${
               rationName.trim()
-                ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-emerald-200'
+                ? 'bg-brandRed hover:bg-deepRed text-white shadow-brandRed/25 cursor-pointer'
                 : 'bg-slate-200 text-slate-400 cursor-not-allowed'
             }`}
           >
@@ -449,3 +449,4 @@ export default function Screen4DocumentDoctor({
     </div>
   );
 }
+

@@ -35,7 +35,7 @@ export default function Screen9Dashboard({ onBack, lang = 'hi' }) {
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider mb-2">
-              <BarChart3 className="w-3.5 h-3.5 text-emerald-600" />
+              <BarChart3 className="w-3.5 h-3.5 text-brandRed" />
               {isHi ? 'प्रशासनिक पारदर्शिता शोध' : 'Administrative Transparency Research'}
             </div>
             <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight">
@@ -81,7 +81,7 @@ export default function Screen9Dashboard({ onBack, lang = 'hi' }) {
             <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">
               {isHi ? 'पोर्टल स्थिति (नमूना)' : 'CPGRAMS Resolution Rate'}
             </span>
-            <div className="text-3xl font-black text-emerald-700 mt-1">71.4%</div>
+            <div className="text-3xl font-black text-brandRed mt-1">71.4%</div>
             <span className="text-[11px] font-semibold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full inline-block mt-2">
               [PLACEHOLDER MOCKUP]
             </span>
@@ -132,7 +132,7 @@ export default function Screen9Dashboard({ onBack, lang = 'hi' }) {
           <button
             type="button"
             onClick={onBack}
-            className="min-h-[48px] px-6 py-2.5 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-base flex items-center gap-2 shadow-md shadow-emerald-200"
+            className="min-h-[48px] px-6 py-2.5 rounded-2xl bg-brandRed hover:bg-deepRed text-white font-bold text-sm sm:text-base flex items-center gap-2 shadow-md shadow-brandRed/25"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>{isHi ? 'आवेदन प्रवाह पर वापस जाएं' : 'Return to Active Workflow'}</span>
@@ -142,3 +142,5 @@ export default function Screen9Dashboard({ onBack, lang = 'hi' }) {
     </div>
   );
 }
+
+
